@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+
+
+    <TextView android:layout_width="match_parent"
+        android:background="@color/red"
+        android:layout_height="40dp"
+        android:textSize="20sp"
+        android:text="我是顶部" />
+
+    <!--可滑动的布局内容-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <!--底部操作栏-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/red"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        app:layout_behavior="com.example.joybar.myaskunagjia.demo.md.CoordinatorLayout2.FooterBehavior">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="添加你的评论"
+            android:drawablePadding="5dp"
+            android:drawableLeft="@drawable/ic_discuss"
+            android:textColor="@android:color/white" />
+
+
+        <ImageView
+            android:layout_marginLeft="29dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_favorite"/>
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

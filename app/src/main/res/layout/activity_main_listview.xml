@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+        <com.example.joybar.library_listview.PullToRefreshView
+            android:id="@+id/main_pull_refresh_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+         
+            android:orientation="vertical" >
+
+            <ListView
+                android:id="@+id/xlistView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+               
+                android:dividerHeight="0.1dip"
+                android:paddingLeft="5dip"
+                android:paddingRight="5dip"
+              >
+            </ListView>
+        </com.example.joybar.library_listview.PullToRefreshView>
+
+</LinearLayout>

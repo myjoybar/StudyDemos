@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.joybar.myaskunagjia" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name="com.example.joybar.myaskunagjia.application.MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".demo.okhttp.OkhttpActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".demo.scroll.MainActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".demo.scroll.demo1.WheelActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".demo.scroll.demo2.MainActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".demo.scroll.demo2.MultiScreenActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".demo.scroll.demo3.MultiScreenActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".demo.scroll.demo3.MainActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".demo.scroll.demo4.MainActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".demo.scroll.demo5.MultiScreenActivity"
+            android:label="@string/app_name" />
+        <activity android:name=".demo.scroll.demo6.MainActivity" />
+        <activity android:name=".demo.tanmu.MainActivity" />
+        <activity android:name=".demo.pop.MainActivity" />
+        <activity android:name=".demo.gesture.MainActivityGuide" />
+        <activity android:name=".demo.gesture.MainActivity" />
+        <activity android:name=".demo.gesture.GestureTest" />
+        <activity android:name=".demo.gesture.gesture3.MainActivity" />
+        <activity android:name=".demo.gesture.gesture4.MainActivity" />
+        <activity android:name=".demo.titlebar.MainActivity" />
+        <activity android:name=".demo.webview.MainActivityGuide" />
+        <activity android:name=".demo.webview.MainActivity" />
+        <activity android:name=".demo.webview.MainActivity2" />
+        <activity android:name=".demo.webview.MainActivity3" />
+        <activity android:name=".demo.toast.MainActivity" />
+        <activity android:name=".demo.animation.MainActivityGuide" />
+        <activity android:name=".demo.animation.demo1.MainActivity" />
+        <activity android:name=".demo.animation.ani2.MainActivity" />
+        <activity android:name=".demo.animation.ani3.MainActivity" />
+        <activity android:name=".demo.animation.ani4.MainActivity" />
+        <activity android:name=".demo.md.recyclerview.MainActivity" />
+        <activity android:name=".demo.md.MainActivityGuide" />
+        <activity android:name=".demo.md.recyclerview_refresh.MainActivity" />
+        <activity android:name=".demo.md.recyclerview_refresh2.MainActivity" />
+        <activity android:name=".demo.md.recyclerview_refresh3.MainActivity" />
+        <activity android:name=".demo.md.recyclerview_refresh4.MainActivity" />
+        <activity android:name=".demo.md.listview.MainActivity" />
+        <activity android:name=".demo.md.cardview.MainActivity" />
+        <activity android:name=".demo.md.toolbar.MainActivity_Toolbar" />
+        <activity android:name=".demo.md.FloatingActionButton.MainActivity_floating_button" />
+        <activity android:name=".demo.md.TabLayout.MainActivity_TabLayout" />
+        <activity android:name=".demo.md.CoordinatorLayout.MainActivity" />
+        <activity android:name=".demo.md.CoordinatorLayout2.MainActivity" />
+        <activity android:name=".demo.md.CoordinatorLayout3.MainActivity" />
+        <activity android:name=".demo.md.CoordinatorLayout4.MainActivity" />
+        <activity android:name=".demo.md.CoordinatorLayout6.MainActivity" />
+        <activity android:name=".demo.md.SwipeDismissBehavior.MainActivity" />
+        <activity android:name=".demo.md.NavigationView.MainActivity_navigation" />
+        <activity android:name=".demo.nicehair.MainActivity" />
+        <activity android:name=".demo.eventbus.MainActivity" />
+        <activity android:name=".demo.eventbus.MainActivity_event_second" />
+        <activity android:name=".demo.xiangji1.MainActivity" />
+        <activity android:name=".demo.xiangji1.Activity_ColorMatrix" />
+        <activity android:name=".demo.xiangji1.Activity_PixelsEffect" />
+        <activity android:name=".demo.xiangji1.Activity_PrimaryColor" />
+        <activity android:name=".demo.xiangji2.MainActivity" />
+        <activity android:name=".demo.xiangji2.Activity_BitmapShaderTest" />
+        <activity android:name=".demo.xiangji2.Activity_ImageMatrixTest" />
+        <activity android:name=".demo.xiangji2.Activity_MeshViewTest" />
+        <activity android:name=".demo.xiangji2.Activity_ReflectViewTest" />
+        <activity android:name=".demo.xiangji2.Activity_RoundRectXfermodTest" />
+        <activity android:name=".demo.mvp.MVP2.View.MainActivity" />
+        <activity android:name=".demo.mvp.MainActivity" />
+        <activity android:name=".demo.github.listviewCanlender.MainActivity" />
+        <activity android:name=".demo.RXJava.MainActivityRx" />
+        <activity android:name=".demo.Retrofit.activity.MainActivity"/>
+        <activity android:name="com.example.joybar.myaskunagjia.demo.drawable.MainActivity"/>
+        <activity android:name=".demo.github.ExpandableTextView.ExpandableTextViewActivity"/>
+        <activity android:name="com.example.joybar.myaskunagjia.demo.github.MainActivityGuideGit"/>
+        <activity android:name="com.example.joybar.myaskunagjia.demo.github.TimelyTextView.MainActivity"/>
+
+
+
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}" />
+    </application>
+
+
+</manifest>

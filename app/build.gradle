@@ -1,0 +1,94 @@
+apply plugin: 'com.android.application'
+
+//用于release版本的包名
+def releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        applicationId "com.example.joybar.myaskunagjia"
+        minSdkVersion 11
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        // dex突破65535的限制
+        multiDexEnabled true
+        // 默认是umeng的渠道
+        manifestPlaceholders = [UMENG_CHANNEL_VALUE: "umeng"]
+    }
+    buildTypes {
+
+        debug {
+            //http://stormzhang.com/devtools/2015/01/15/android-studio-tutorial6/
+            // 显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "true"
+
+            // debug模式
+        }
+
+        release {
+            // 不显示Log
+            buildConfigField "boolean", "LOG_DEBUG", "false"
+
+            minifyEnabled true //是否开启混淆
+            shrinkResources true //去除无用的resource文件
+            //加载混淆配置文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        // 输出apk名称为myAsDemo_v1.0_2015-01-15_wandoujia.apk
+                        def fileName = "myAsDemo_v${defaultConfig.versionName}_${releaseTime()}_${variant.productFlavors[0].name}.apk"
+                        output.outputFile = new File(outputFile.parent, fileName)
+                    }
+                }
+            }
+        }
+        // 移除lint检查的error
+        lintOptions {
+            abortOnError false
+        }
+
+
+    }
+
+
+    sourceSets { main { res.srcDirs = ['src/main/res', 'src/main/res/anim'] } }
+
+    productFlavors {
+        xiaomi {}
+        _360 {}
+        baidu {}
+        wandoujia {}
+    }
+
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:23.0.1'
+    compile 'com.squareup.okhttp:okhttp:2.5.0'
+    //   compile 'com.nhaarman.supertooltips:library:3.0.+'
+    compile 'com.android.support:recyclerview-v7:23.0.1'
+    compile 'com.android.support:cardview-v7:23.0.1'
+    compile 'com.android.support:palette-v7:23.0.1'
+    compile 'com.android.support:design:23.0.1'
+    compile 'de.greenrobot:eventbus:2.4.0'
+    compile project(':library_listview')
+    compile project(':library_canlender')
+    compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'io.reactivex:rxjava:1.1.0'
+    compile 'com.squareup.retrofit2:retrofit:2.0.0-beta3'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.0-beta3'
+}

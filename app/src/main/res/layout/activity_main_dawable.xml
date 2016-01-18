@@ -1,0 +1,70 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="10dp"
+    >
+    <Button
+    android:layout_marginTop="10dp"
+    android:id="@+id/btn1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="shape" />
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:id="@+id/btn2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="selector,点击" />
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:id="@+id/btn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <Button
+        android:layout_marginTop="10dp"
+        android:id="@+id/btn4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="btn4" />
+
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" TV_selector,点击" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/tv2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" TV2_hello_world1" />
+
+
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/android_log_green"
+        />
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:id="@+id/imv0"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        />
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:id="@+id/imv1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        />
+
+</LinearLayout>

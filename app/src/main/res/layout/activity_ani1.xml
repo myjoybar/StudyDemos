@@ -1,0 +1,65 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击放大Button" />
+
+    <Button
+        android:id="@+id/btn3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击移到最右-getTranslationX两种方式" />
+
+    <Button
+        android:id="@+id/btn4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击 和上面button对其-setx" />
+
+    <Button
+        android:id="@+id/btn5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击 btn2.scrollTo(-180, 0) 和 ViewHelper.setScrollX(btn2, -180)效果一样" />
+
+  <Button
+        android:id="@+id/btn6"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+      android:layout_marginLeft="60dp"
+    android:text="点击复位" />
+    <Button
+        android:id="@+id/btn7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:text="btn2.scrollBy(-180, 0)" />
+
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+    android:layout_marginLeft="50dp"
+        android:padding="0dp"
+        android:gravity="left|bottom"
+        android:text="我是测试" />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="50dp"
+      android:paddingLeft="60dp"
+        android:gravity="left|top"
+        android:text="我是对比， android:paddingLeft=60dp" />
+
+
+</LinearLayout>

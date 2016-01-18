@@ -1,0 +1,37 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+
+
+    <style name="NoActionBar" parent="Theme.AppCompat.Light.NoActionBar">
+         <!-- Customize your theme here. -->
+    <!--导航栏底色-->
+    <item name="colorPrimary">@color/skyblue</item>
+    <!--状态栏底色-->
+    <item name="colorPrimaryDark">@color/blue</item>
+    <!--导航栏上的标题颜色-->
+    <item name="android:textColorPrimary">@color/yellow</item>
+    <!--Activity窗口的颜色-->
+    <item name="android:windowBackground">@color/orange</item>
+    <!--按钮选中或者点击获得焦点后的颜色-->
+    <item name="colorAccent">#00ff00</item>
+    <!--和 colorAccent相反，正常状态下按钮的颜色-->
+    <item name="colorControlNormal">#ff0000</item>
+    <!--Button按钮正常状态颜色-->
+    <item name="colorButtonNormal">@color/accent_material_light</item>
+    <!--EditText 输入框中字体的颜色-->
+    <item name="editTextColor">@android:color/white</item>
+
+    </style>
+
+
+        <style name="NoActionBar1" parent="Theme.AppCompat.Light.NoActionBar">
+            <item name="colorPrimary">@color/material_blue_500</item>
+            <item name="colorPrimaryDark">@color/material_blue_700</item>
+            <item name="colorAccent">@color/material_green_A200</item>
+        </style>
+ </resources>
