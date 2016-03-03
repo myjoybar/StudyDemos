@@ -130,7 +130,7 @@
                 android:id="@+id/btn20"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="20 " />
+                android:text="20 drawable utils " />
             <Button
                 android:id="@+id/btn21"
                 android:layout_width="match_parent"

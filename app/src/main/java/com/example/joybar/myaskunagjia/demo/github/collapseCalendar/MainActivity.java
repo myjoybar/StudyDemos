@@ -1,61 +1,39 @@
-package com.example.joybar.myaskunagjia.demo.github;
+package com.example.joybar.myaskunagjia.demo.github.collapseCalendar;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.joybar.myaskunagjia.R;
 import com.example.joybar.myaskunagjia.base.BaseActivity;
 import com.example.joybar.myaskunagjia.commom.L;
-import com.example.joybar.myaskunagjia.demo.github.ExpandableTextView.ExpandableTextViewActivity;
 
 /**
  * Created by joybar on 15/11/4.
  */
-public class MainActivityGuideGit extends BaseActivity {
+public class MainActivity extends BaseActivity {
 
     // 静态变量部分————————————————————————————————————————————————————————————————————————————————————————————————————————————————
     // public static final int CLICK_ADDRESS_ADD = 0;
     // 成员变量部分————————————————————————————————————————————————————————————————————————————————————————————————————————————————
     // 成员变量View部分————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-    Button btn1;
-
-    Button btn2;
-
-    Button btn3;
-
-    Button btn4;
-
-    Button btn5;
-
-    Button btn6;
-
-    Button btn7;
-
-    Button btn8;
-
-    Button btn9;
-
-    Button btn10;
-
-    Button btn11;
-    Button btn12;
-    Button btn13;
-    Button btn14;
-    Button btn15;
-    // private TextView tv_register, tv_reget_pwd;
+    private Button btn1, btn2, btn3, btn4, btn5;
+    private TextView tv1, tv2;
     // 成员变量adapter部分————————————————————————————————————————————————————————————————————————————————————————————————————————————————
     // 成员变量List部分————————————————————————————————————————————————————————————————————————————————————————————————————————————————
     // 成员变量Bean部分————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+  //  CollapseViewGroup cv;
 
     //生命周期部分————————————————————————————————————————————————————————————————————————————————————————————————————————————————
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_guide_git);
+        setContentView(R.layout.activity_main_calendar_collapse1);
+
+
         initView();
         initData();
         setLinstener();
@@ -67,6 +45,7 @@ public class MainActivityGuideGit extends BaseActivity {
         L.i(TAG, "onStart");
         super.onStart();
     }
+
     @Override
     protected void onRestart() {
         L.i(TAG, "onRestart");
@@ -84,14 +63,14 @@ public class MainActivityGuideGit extends BaseActivity {
         L.i(TAG, "onPause");
         super.onPause();
     }
+
     @Override
     protected void onStop() {
-        L.i(TAG, "onStop");
-        L.i(TAG, "onStop");
         L.i(TAG, "onStop");
         super.onStop();
 
     }
+
     @Override
     protected void onDestroy() {
         L.i(TAG, "onDestroy");
@@ -102,8 +81,21 @@ public class MainActivityGuideGit extends BaseActivity {
 
     @Override
     protected void initView() {
+//        btn1 = fvById(R.id.btn);
+//        btn2 = fvById(R.id.btn2);
+//        btn2 = fvById(R.id.btn2);
+//        btn3 = fvById(R.id.btn3);
+//        btn4 = fvById(R.id.btn4);
+//        tv1 = fvById(R.id.tv1);
+//        tv2 = fvById(R.id.tv2);
+     //   cv = fvById(R.id.cv);
 
-
+//        cv.setCollapseListener(new CollapseViewGroup.onCollapseListener() {
+//            @Override
+//            public void onCollapse() {
+//                btn1.setVisibility(View.VISIBLE);
+//            }
+//        });
     }
 
     @Override
@@ -113,11 +105,11 @@ public class MainActivityGuideGit extends BaseActivity {
 
     @Override
     protected void setLinstener() {
-        initButton(btn1, R.id.btn1, com.example.joybar.myaskunagjia.demo.github.listviewCanlender.MainActivity.class);
-        initButton(btn2,R.id.btn2,ExpandableTextViewActivity.class);
-        initButton(btn3,R.id.btn3,com.example.joybar.myaskunagjia.demo.github.TimelyTextView.MainActivity.class);
-        initButton(btn4,R.id.btn4,com.example.joybar.myaskunagjia.demo.github.collapseCalendar.MainActivity.class);
-       // initButton(btn3,R.id.btn3,MainActivity3.class);
+//         btn1.setOnClickListener(this);
+//         btn2.setOnClickListener(this);
+//         btn3.setOnClickListener(this);
+//         btn4.setOnClickListener(this);
+
     }
 
     @Override
@@ -132,22 +124,24 @@ public class MainActivityGuideGit extends BaseActivity {
     //回调方法部分————————————————————————————————————————————————————————————————————————————————————————————————————————————————
     @Override
     public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn1:
 
+                break;
+            case R.id.btn2:
 
-    }
+                break;
+            case R.id.btn3:
 
-    public void initButton(Button btn, int id, final Class c) {
+                break;
+            case R.id.btn4:
 
-        btn = (Button) this.findViewById(id);
+                break;
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+            default:
+                break;
+        }
 
-                Intent intent = new Intent(MainActivityGuideGit.this, c);
-                startActivity(intent);
-
-            }
-        });
     }
 
 

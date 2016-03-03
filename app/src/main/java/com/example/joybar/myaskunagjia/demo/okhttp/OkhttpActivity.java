@@ -1,14 +1,13 @@
 package com.example.joybar.myaskunagjia.demo.okhttp;
 
 import android.os.Bundle;
-import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.joybar.myaskunagjia.R;
 import com.example.joybar.myaskunagjia.base.BaseActivity;
 import com.example.joybar.myaskunagjia.commom.L;
-import com.example.joybar.myaskunagjia.commom.T;
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.OkHttpClient;
@@ -43,12 +42,18 @@ public class OkhttpActivity extends BaseActivity {
         initData();
         setLinstener();
         fillData();
+
+        Log.d("AAAAAAA", "AAAA1=" + tv.getWidth() + "");
+
     }
 
     @Override
     protected void onStart() {
         L.i(TAG, "onStart");
+
         super.onStart();
+        Log.d("AAAAAAA", "AAAA2=" + tv.getWidth() + "");
+
     }
 
     @Override
@@ -60,7 +65,10 @@ public class OkhttpActivity extends BaseActivity {
     @Override
     protected void onResume() {
         L.i(TAG, "onResume");
+
         super.onResume();
+        Log.d("AAAAAAA", "AAAA3=" + tv.getWidth() + "");
+
     }
 
     @Override

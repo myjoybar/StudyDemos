@@ -105,6 +105,7 @@
         <activity android:name=".demo.github.ExpandableTextView.ExpandableTextViewActivity"/>
         <activity android:name="com.example.joybar.myaskunagjia.demo.github.MainActivityGuideGit"/>
         <activity android:name="com.example.joybar.myaskunagjia.demo.github.TimelyTextView.MainActivity"/>
+        <activity android:name="com.example.joybar.myaskunagjia.demo.github.collapseCalendar.MainActivity"/>
 
 
 

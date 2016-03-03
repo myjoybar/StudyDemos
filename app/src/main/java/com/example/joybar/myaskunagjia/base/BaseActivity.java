@@ -3,11 +3,14 @@ package com.example.joybar.myaskunagjia.base;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+
+import com.example.joybar.myaskunagjia.application.MyApplication;
+import com.squareup.leakcanary.RefWatcher;
+
 /**
  * Created by joybar on 15/11/4.
  */
@@ -26,6 +29,10 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
         ActivityCollector.getInstance();
         ActivityCollector.addActivity(this);
         // ActivityCollector.addActivity(this);
+
+        //在自己的应用初始Activity中加入如下两行代码
+        RefWatcher refWatcher = MyApplication.getRefWatcher(this);
+        refWatcher.watch(this);
 
 
     }
@@ -72,6 +79,9 @@ public abstract class BaseActivity extends Activity implements OnClickListener {
         super.onDestroy();
 
         ActivityCollector.removeActivity(this);
+
+        RefWatcher refWatcher = MyApplication.getRefWatcher(this);
+        refWatcher.watch(this);
     }
 
     /**
