@@ -135,20 +135,62 @@
                 android:id="@+id/btn21"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="21 " />
+                android:text="21ViewDragHelper" />
 
             <Button
                 android:id="@+id/btn22"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="22" />
+                android:text="22 adapter" />
+
+            <ImageView
+                android:id="@+id/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/android"
+                android:contentDescription="@null" />
 
             <Button
-                android:id="@+id/btn23"
+                android:id="@+id/btn231"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="23 " />
+
+            <Button
+                android:id="@+id/btn24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="24 " />
+            <Button
+                android:id="@+id/btn25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="25 " />
+            <Button
+                android:id="@+id/btn26"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="26 " />
+            <Button
+                android:id="@+id/btn27"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="27 " />
+            <Button
+                android:id="@+id/btn28"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="28 " />
+            <Button
+                android:id="@+id/btn29"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="29 " />
+            <Button
+                android:id="@+id/btn30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="30" />
         </LinearLayout>
     </ScrollView>
-
 </LinearLayout>

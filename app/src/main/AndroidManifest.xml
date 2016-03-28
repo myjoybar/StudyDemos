@@ -3,6 +3,11 @@
     package="com.example.joybar.myaskunagjia" >
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <!-- SD卡写权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- SD卡读权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
 
     <application
         android:name="com.example.joybar.myaskunagjia.application.MyApplication"
@@ -72,17 +77,21 @@
         <activity android:name=".demo.md.recyclerview_refresh3.MainActivity" />
         <activity android:name=".demo.md.recyclerview_refresh4.MainActivity" />
         <activity android:name=".demo.md.listview.MainActivity" />
-        <activity android:name=".demo.md.cardview.MainActivity" />
-        <activity android:name=".demo.md.toolbar.MainActivity_Toolbar" />
+        <activity android:name=".demo.md.cardview.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".demo.md.toolbar.MainActivity_Toolbar"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".demo.md.FloatingActionButton.MainActivity_floating_button" />
-        <activity android:name=".demo.md.TabLayout.MainActivity_TabLayout" />
+        <activity android:name=".demo.md.TabLayout.MainActivity_TabLayout"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".demo.md.CoordinatorLayout.MainActivity" />
         <activity android:name=".demo.md.CoordinatorLayout2.MainActivity" />
         <activity android:name=".demo.md.CoordinatorLayout3.MainActivity" />
         <activity android:name=".demo.md.CoordinatorLayout4.MainActivity" />
         <activity android:name=".demo.md.CoordinatorLayout6.MainActivity" />
         <activity android:name=".demo.md.SwipeDismissBehavior.MainActivity" />
-        <activity android:name=".demo.md.NavigationView.MainActivity_navigation" />
+        <activity android:name=".demo.md.NavigationView.MainActivity_navigation"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".demo.nicehair.MainActivity" />
         <activity android:name=".demo.eventbus.MainActivity" />
         <activity android:name=".demo.eventbus.MainActivity_event_second" />
@@ -106,6 +115,13 @@
         <activity android:name="com.example.joybar.myaskunagjia.demo.github.MainActivityGuideGit"/>
         <activity android:name="com.example.joybar.myaskunagjia.demo.github.TimelyTextView.MainActivity"/>
         <activity android:name="com.example.joybar.myaskunagjia.demo.github.collapseCalendar.MainActivity"/>
+
+        <activity android:name="com.example.joybar.myaskunagjia.demo.ViewDragHelper.MainActivity1"/>
+        <activity android:name="com.example.joybar.myaskunagjia.demo.github.collapseScrollview.MainActivityCollapseScrollview"/>
+        <activity android:name="com.example.joybar.myaskunagjia.demo.md.RecyclerTabLayout.MainActivity"/>
+        <activity android:name="com.example.joybar.myaskunagjia.demo.Retrofit.RetrofitDemo.MainActivity"/>
+        <activity android:name="com.example.joybar.myaskunagjia.demo.Adapter.MainActivity"/>
+
 
 
 

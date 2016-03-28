@@ -8,13 +8,14 @@ import android.widget.TextView;
 import com.example.joybar.myaskunagjia.R;
 import com.example.joybar.myaskunagjia.base.BaseActivity;
 import com.example.joybar.myaskunagjia.commom.L;
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.Callback;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
 
 import java.io.IOException;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * Created by joybar on 15/11/4.
@@ -130,13 +131,14 @@ public class OkhttpActivity extends BaseActivity {
 //new call
         Call call = mOkHttpClient.newCall(request);
 //请求加入调度
+
         call.enqueue(new Callback() {
             @Override
-            public void onFailure(Request request, IOException e) {
+            public void onFailure(Call call, IOException e) {
             }
 
             @Override
-            public void onResponse(final Response response) throws IOException {
+            public void onResponse(Call call,final Response response) throws IOException {
                final String htmlStr =  response.body().string();
 //                Looper.prepare();
 //                T.showLong(mContext, htmlStr);

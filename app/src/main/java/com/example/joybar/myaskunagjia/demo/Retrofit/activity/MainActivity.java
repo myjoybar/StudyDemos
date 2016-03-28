@@ -1,35 +1,28 @@
 package com.example.joybar.myaskunagjia.demo.Retrofit.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
 import com.example.joybar.myaskunagjia.R;
 import com.example.joybar.myaskunagjia.commom.L;
-import com.example.joybar.myaskunagjia.demo.Retrofit.API.GitHubService;
 import com.example.joybar.myaskunagjia.demo.Retrofit.demoTest.GitHubClient;
 import com.example.joybar.myaskunagjia.demo.Retrofit.demoTest.Model2;
 import com.example.joybar.myaskunagjia.demo.Retrofit.demoTest.Model3;
 import com.example.joybar.myaskunagjia.demo.Retrofit.demoTest.ModelBean;
 import com.example.joybar.myaskunagjia.demo.Retrofit.demoTest.ServiceGenerator;
-import com.example.joybar.myaskunagjia.demo.Retrofit.model.User;
 import com.example.joybar.myaskunagjia.utils.logger.Logger;
-import com.google.gson.Gson;
 
 import java.io.IOException;
 
-import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.GsonConverterFactory;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         btn2 = (Button) findViewById(R.id.btn2);
         btn3 = (Button) findViewById(R.id.btn3);
         btn4 = (Button) findViewById(R.id.btn4);
+        btn5 = (Button) findViewById(R.id.btn5);
 
         tv = (TextView) findViewById(R.id.tv);
         pbar = (ProgressBar) findViewById(R.id.pb);
@@ -73,6 +67,12 @@ public class MainActivity extends AppCompatActivity {
                 test4();
             }
         });
+        btn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              startActivity(new Intent(MainActivity.this,com.example.joybar.myaskunagjia.demo.Retrofit.RetrofitDemo.MainActivity.class));
+            }
+        });
     }
 
 //get 传值
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
         call.enqueue(new Callback<ModelBean>() {
             @Override
-            public void onResponse(Response<ModelBean> response) {
+            public void onResponse(Call<ModelBean> call,Response<ModelBean> response) {
                 pbar.setVisibility(View.INVISIBLE);
                 ModelBean modelBean = response.body();
 
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Throwable t) {
+            public void onFailure(Call<ModelBean> call,Throwable t) {
                 Logger.init("AAA");
                 Logger.d("AA", "error");
                 tv.setText("error");
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
         call.enqueue(new Callback<ModelBean>() {
             @Override
-            public void onResponse(Response<ModelBean> response) {
+            public void onResponse(Call<ModelBean> call,Response<ModelBean> response) {
                 pbar.setVisibility(View.INVISIBLE);
                 ModelBean modelBean = response.body();
                 if (null != modelBean) {
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Throwable t) {
+            public void onFailure(Call<ModelBean> call,Throwable t) {
                 Logger.init("AAA");
                 Logger.d("AA", "error");
                 tv.setText("error");
@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
                 client.setLoginService("15269627973", "123456", "consignor");
         call.enqueue(new Callback<Model2>() {
             @Override
-            public void onResponse(Response<Model2> response) {
+            public void onResponse(Call<Model2> call,Response<Model2> response) {
                 pbar.setVisibility(View.INVISIBLE);
                 L.i("AAA", " response.toString()= " + response.toString());
                 L.i("AAA", "response.body().toString()= " + response.body().toString()
@@ -192,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Throwable t) {
+            public void onFailure(Call<Model2> call,Throwable t) {
 
                 Logger.d("AA", "error");
                 tv.setText("error");
@@ -220,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
 
         call.enqueue(new Callback<Model3>() {
             @Override
-            public void onResponse(Response<Model3> response) {
+            public void onResponse(Call<Model3> call,Response<Model3> response) {
                 pbar.setVisibility(View.INVISIBLE);
 
                 Model3 modelBean = response.body();
@@ -234,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Throwable t) {
+            public void onFailure(Call<Model3> call,Throwable t) {
 
                 Logger.d("AA", "error");
                 tv.setText("error");

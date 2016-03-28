@@ -32,5 +32,5 @@
         android:id="@+id/btn5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="btn5" />
+        android:text="btn5  collapseScrollview" />
 </LinearLayout>

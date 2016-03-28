@@ -3,6 +3,7 @@ package com.example.joybar.myaskunagjia.application;
 import android.app.Application;
 import android.content.Context;
 
+import com.example.joybar.myaskunagjia.utils.AppManagerUtils;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -11,7 +12,7 @@ import com.squareup.leakcanary.RefWatcher;
  */
 public class MyApplication extends Application {
 
-    private static Context context;
+    private static Context mContext;
 
     private static  RefWatcher refWatcher;
 
@@ -20,14 +21,15 @@ public class MyApplication extends Application {
         super.onCreate();
         initContext();
         initLeakCanary();
+        addShortcut();
     }
 
     private void initContext() {
-        context = getApplicationContext();
+        mContext = getApplicationContext();
     }
 
     public static Context getContext() {
-        return context;
+        return mContext;
     }
 
     private void initLeakCanary(){
@@ -46,4 +48,10 @@ public class MyApplication extends Application {
     protected RefWatcher installLeakCanary() {
         return RefWatcher.DISABLED;
     }
+
+
+    private void addShortcut(){
+        AppManagerUtils.addShortcutByPackageName(mContext,AppManagerUtils.getAppName(mContext));
+    }
+
 }

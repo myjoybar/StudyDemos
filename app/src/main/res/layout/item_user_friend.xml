@@ -16,12 +16,11 @@
 
         <ImageView
             android:id="@+id/img_friend_avatar"
-            android:layout_width="20dip"
-            android:layout_height="20dip"
-            android:layout_marginTop="8dip"
-            android:layout_marginBottom="8dip"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+
             android:layout_marginLeft="8dip"
-            android:background="@drawable/head" />
+             />
         <View
 
             android:layout_width="match_parent"
@@ -31,7 +30,7 @@
 
 </RelativeLayout>
 
-
+    <!--android:background="@drawable/head" -->
   <!--  <com.example.testbase.rippleeffect.RippleView 
    
     android:layout_width="match_parent"

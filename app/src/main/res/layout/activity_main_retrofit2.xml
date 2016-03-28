@@ -1,41 +1,44 @@
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+
+<FrameLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+<LinearLayout
+
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
+
+
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="http://ky.melink.cn/server/users/check/ss"
+        android:text="get 有参数"
         android:id="@+id/btn1"
          />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="http://ky.melink.cn/server/users/check?login_name=15269627973"
+        android:text="post 有参数"
         android:id="@+id/btn2"
         />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="http://ky.melink.cn/server/users/login?login_name=15269627973password=123456client=consignor"
+        android:text="3"
         android:id="@+id/btn3"
         />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="http://ky.melink.cn/server/users/tokenget?login_name=15269627973app_to=melink"
+        android:text="4"
         android:id="@+id/btn4"
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="demo"
-        android:id="@+id/btn5"
         />
     <TextView
         android:id="@+id/tv"
@@ -44,13 +47,22 @@
         />
 
 
-    <ProgressBar
+    <ImageView
+        android:id="@+id/imv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxWidth="400dp"/>
+
+</LinearLayout>
+
+    <ProgressBar
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/pb"
         android:layout_below="@+id/tv"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginTop="83dp"
+
         android:indeterminate="false" />
-</LinearLayout>
+
+</FrameLayout>

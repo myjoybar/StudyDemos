@@ -11,6 +11,8 @@ public class User {
 
     String avatar;
 
+
+
     public int getType() {
         return type;
     }
