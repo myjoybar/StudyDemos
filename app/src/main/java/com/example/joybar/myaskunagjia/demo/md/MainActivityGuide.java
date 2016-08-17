@@ -121,6 +121,11 @@ public class MainActivityGuide extends BaseActivity {
         initButton(btn16,R.id.btn16,com.example.joybar.myaskunagjia.demo.md.SwipeDismissBehavior.MainActivity.class);
 
        initButton(btn17,R.id.btn17,com.example.joybar.myaskunagjia.demo.md.CoordinatorLayout6.MainActivity.class);
+       initButton(btn18,R.id.btn18,com.example.joybar.myaskunagjia.demo.md.RecyclerViewHeader.MainActivity.class);
+       initButton(btn19,R.id.btn19,com.example.joybar.myaskunagjia.demo.md.CoordinatorLayout7.MainActivity.class);
+       initButton(btn20,R.id.btn20,com.example.joybar.myaskunagjia.demo.md.sortRecyclerView.MainActivity.class);
+
+
     }
 
     @Override

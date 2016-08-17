@@ -1,35 +1,28 @@
 package com.example.joybar.myaskunagjia.demo.Retrofit.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
 import com.example.joybar.myaskunagjia.R;
 import com.example.joybar.myaskunagjia.commom.L;
-import com.example.joybar.myaskunagjia.demo.Retrofit.API.GitHubService;
 import com.example.joybar.myaskunagjia.demo.Retrofit.demoTest.GitHubClient;
 import com.example.joybar.myaskunagjia.demo.Retrofit.demoTest.Model2;
 import com.example.joybar.myaskunagjia.demo.Retrofit.demoTest.Model3;
 import com.example.joybar.myaskunagjia.demo.Retrofit.demoTest.ModelBean;
 import com.example.joybar.myaskunagjia.demo.Retrofit.demoTest.ServiceGenerator;
-import com.example.joybar.myaskunagjia.demo.Retrofit.model.User;
 import com.example.joybar.myaskunagjia.utils.logger.Logger;
-import com.google.gson.Gson;
 
 import java.io.IOException;
 
-import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.GsonConverterFactory;
 import retrofit2.Response;
-import retrofit2.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -44,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         btn2 = (Button) findViewById(R.id.btn2);
         btn3 = (Button) findViewById(R.id.btn3);
         btn4 = (Button) findViewById(R.id.btn4);
+        btn5 = (Button) findViewById(R.id.btn5);
 
         tv = (TextView) findViewById(R.id.tv);
         pbar = (ProgressBar) findViewById(R.id.pb);
@@ -71,6 +65,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 test4();
+            }
+        });
+        btn5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,com.example.joybar.myaskunagjia.demo.Retrofit.Retrofit2.MainActivity.class);
+               startActivity(intent);
             }
         });
     }

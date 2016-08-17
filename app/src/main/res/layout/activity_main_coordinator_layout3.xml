@@ -7,17 +7,26 @@
 
 
     <!--toolbar-->
+
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <android.support.v7.widget.Toolbar
+            android:background="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_scrollFlags="scroll|enterAlways"
             />
 
     </android.support.design.widget.AppBarLayout>
+
+<View
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="#CCCCCC"
+    android:layout_gravity="top"
+    app:layout_scrollFlags="scroll|enterAlways"/>
 
 
     <!--可滑动的布局内容-->

@@ -6,9 +6,6 @@
     android:layout_height="match_parent">
 
 
-
-
-
     <!--可滑动的布局内容-->
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"

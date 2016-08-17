@@ -1,11 +1,11 @@
-package com.example.joybar.myaskunagjia.demo.md.recyclerview_refresh;
+package com.example.joybar.myaskunagjia.demo.md.CoordinatorLayout7;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.TextView;
 
 import com.example.joybar.myaskunagjia.R;
 
@@ -20,8 +20,6 @@ public class SampleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 
     private static final int TYPE_ITEM = 0;
     private static final int TYPE_FOOTER = 1;
-
-    private String mNotificationNum;
 
     public List<Integer> getList() {
         return list;

@@ -7,35 +7,28 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="http://ky.melink.cn/server/users/check/ss"
+        android:text="111"
         android:id="@+id/btn1"
          />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="http://ky.melink.cn/server/users/check?login_name=15269627973"
+        android:text="222"
         android:id="@+id/btn2"
         />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="http://ky.melink.cn/server/users/login?login_name=15269627973password=123456client=consignor"
+        android:text="333"
         android:id="@+id/btn3"
         />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="http://ky.melink.cn/server/users/tokenget?login_name=15269627973app_to=melink"
+        android:text="444"
         android:id="@+id/btn4"
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Retrofit2"
-        android:id="@+id/btn5"
         />
     <TextView
         android:id="@+id/tv"

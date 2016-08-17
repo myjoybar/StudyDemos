@@ -144,6 +144,27 @@
                 android:text="17 CollapsingToolbarLayout5  fab自定义Behavior "/>
 
 
+            <Button
+                android:id="@+id/btn18"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:text="18 RecyclerView Header "/>
+
+
+            <Button
+                android:id="@+id/btn19"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:text="19 CollapsingToolbarLayout7 "/>
+
+            <Button
+                android:id="@+id/btn20"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:text="20 sort_recyclerview "/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
