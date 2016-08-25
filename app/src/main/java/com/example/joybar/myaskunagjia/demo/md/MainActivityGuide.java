@@ -124,6 +124,7 @@ public class MainActivityGuide extends BaseActivity {
        initButton(btn18,R.id.btn18,com.example.joybar.myaskunagjia.demo.md.RecyclerViewHeader.MainActivity.class);
        initButton(btn19,R.id.btn19,com.example.joybar.myaskunagjia.demo.md.CoordinatorLayout7.MainActivity.class);
        initButton(btn20,R.id.btn20,com.example.joybar.myaskunagjia.demo.md.sortRecyclerView.MainActivity.class);
+       initButton(btn21,R.id.btn21,com.example.joybar.myaskunagjia.demo.md.mddemo.activity.SignInActivity.class);
 
 
     }

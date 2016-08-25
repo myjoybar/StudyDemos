@@ -119,6 +119,7 @@
 
         <activity android:name="com.example.joybar.myaskunagjia.demo.Retrofit.Retrofit2.MainActivity" />
         <activity android:name="com.example.joybar.myaskunagjia.demo.md.sortRecyclerView.MainActivity" />
+        <activity android:name="com.example.joybar.myaskunagjia.demo.md.mddemo.activity.SignInActivity" />
 
         <meta-data
             android:name="UMENG_CHANNEL"
