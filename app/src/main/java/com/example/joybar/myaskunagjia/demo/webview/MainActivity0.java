@@ -17,14 +17,8 @@ import com.example.joybar.myaskunagjia.commom.L;
 /**
  * Created by joybar on 15/11/4.
  */
-public class MainActivity2 extends BaseActivity {
+public class MainActivity0 extends BaseActivity {
 
-    // 静态变量部分————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-    // public static final int CLICK_ADDRESS_ADD = 0;
-    // 成员变量部分————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-    // 成员变量View部分————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-    // private Button btn_login;
-    // private TextView tv_register, tv_reget_pwd;
 
     private WebView contentWebView = null;
     private TextView msgView = null;
@@ -120,7 +114,7 @@ public class MainActivity2 extends BaseActivity {
     @Override
     protected void setLinstener() {
         button.setOnClickListener(this);
-        contentWebView.addJavascriptInterface(MainActivity2.this, "wst");
+        contentWebView.addJavascriptInterface(MainActivity0.this, "wst");
 
     }
 

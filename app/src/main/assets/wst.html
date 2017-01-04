@@ -1,7 +1,7 @@
 <html>
 <head>
-<meta http-equiv="Content-Type"	content="text/html;charset=gb2312">
-<script type="text/javascript">
+    <meta http-equiv="Content-Type" content="text/html;charset=gb2312">
+    <script type="text/javascript">
 function javacalljs(){
 	 document.getElementById("content").innerHTML +=   
          "<br\>java调用了js函数";
@@ -12,15 +12,21 @@ function javacalljswithargs(arg){
          ("<br\>"+arg);
 }
 
+function showindex(){
+      		alert(123);
+      	 document.getElementById("content").innerHTML +=
+         "<br\>123";
+      	}
 
 
-</script>
+
+    </script>
 </head>
 <body>
 this is my html <br/>
 <a onClick="window.wst.startFunction()">点击调用java代码</a><br/>
-<a onClick="window.wst.startFunction('12')" >点击调用java代码并传递参数</a><br/>
-<a onClick="window.wst.startReturnFunction('12')" >点击返回参数</a>
+<a onClick="window.wst.startFunction('12')">点击调用java代码并传递参数</a><br/>
+<a onClick="window.wst.startReturnFunction('12')">点击返回参数</a>
 <br/>
 <div id="content">内容显示</div>
 </body>
