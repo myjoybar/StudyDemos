@@ -120,6 +120,10 @@
         <activity android:name="com.example.joybar.myaskunagjia.demo.Retrofit.Retrofit2.MainActivity" />
         <activity android:name="com.example.joybar.myaskunagjia.demo.md.sortRecyclerView.MainActivity" />
         <activity android:name="com.example.joybar.myaskunagjia.demo.md.mddemo.activity.SignInActivity" />
+        <activity android:name="com.example.joybar.myaskunagjia.demo.databinding.MainActivity" />
+        <activity android:name="com.example.joybar.myaskunagjia.demo.stucture.MainActivityStructure" />
+        <activity android:name="com.example.joybar.myaskunagjia.demo.stucture.mvp.UsersActivity"
+            android:theme="@style/AppTheme.OverlapSystemBar"/>
 
         <meta-data
             android:name="UMENG_CHANNEL"

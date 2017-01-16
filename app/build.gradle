@@ -73,6 +73,12 @@ android {
         flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
     }
 
+
+    //dataBinding
+    dataBinding {
+        enabled = true
+    }
+
 }
 
 

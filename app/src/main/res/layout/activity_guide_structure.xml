@@ -10,18 +10,18 @@
         android:id="@+id/btn1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="btn1" />
+        android:text="mvp" />
 
     <Button
         android:id="@+id/btn2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="btn2" />
+        android:text="mvp clean" />
     <Button
         android:id="@+id/btn3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="btn3" />
+        android:text="mvp mvvm" />
 
     <Button
         android:id="@+id/btn4"

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="colorPrimary">#EE6448</color>
+    <color name="colorPrimaryDark">#D8452F</color>
+
+    <color name="colorAccent">#DD452F</color>
+
     <color name="shadow_bg">#66000000</color>
 
     <color name="holo_blue">#33b5e5</color>
@@ -32,7 +37,7 @@
     <color name="material_blue_700">#00796B</color>
     <color name="material_green_A200">#FD87A9</color>
 
-
+    <drawable name="touchFeedback">#CFD8DC</drawable>
 
 
     <!-- -常用颜色值 -->
