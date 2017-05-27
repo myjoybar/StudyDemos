@@ -7,7 +7,7 @@ def releaseTime() {
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    buildToolsVersion '25.0.0'
 
     defaultConfig {
         applicationId "com.example.joybar.myaskunagjia"
@@ -63,15 +63,16 @@ android {
     sourceSets { main { res.srcDirs = ['src/main/res', 'src/main/res/anim'] } }
 
     productFlavors {
-        xiaomi {}
-        _360 {}
-        baidu {}
-        wandoujia {}
+//        xiaomi {}
+//        _360 {}
+//        baidu {}
+//        wandoujia {}
     }
 
     productFlavors.all {
         flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
     }
+
 
 
     //dataBinding
