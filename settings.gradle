@@ -1,1 +1,1 @@
-include ':app', ':library_listview', ':library_canlender'
+include ':app', ':library_listview', ':library_canlender', ':rxjava2'
