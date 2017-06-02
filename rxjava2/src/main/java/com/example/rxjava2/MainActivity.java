@@ -1,8 +1,14 @@
 package com.example.rxjava2;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Toast;
+
+import com.example.rxjava2.data.PictureCategory;
+import com.example.rxjava2.retrofit.RetrofitProvider;
+import com.example.rxjava2.service.Api;
 
 import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
@@ -19,19 +25,21 @@ public class MainActivity extends AppCompatActivity {
 
 	private static String TAG = "MainActivity";
 
+	private Context mContext;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		mContext = this;
 		//test1();
 		//test2();
-		test3();
+		test22();
 
 	}
 
 
 	//1. =======================================================
-	private void test1(){
+	private void test11(){
 		setContentView(R.layout.activity_main);
 		//创建一个上游 Observable：
 		Observable<Integer> observable = Observable.create(new ObservableOnSubscribe<Integer>() {
@@ -89,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
 	//2. =======================================================
 
-	private void test2(){
+	private void test12(){
 
 
 		Observable<Integer> observable = Observable.create(new ObservableOnSubscribe<Integer>() {
@@ -116,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
 
 	//3. =======================================================
 
-	private void test3(){
+	private void test21(){
 
 
 		Observable<Integer> observable = Observable.create(new ObservableOnSubscribe<Integer>() {
@@ -161,5 +169,35 @@ public class MainActivity extends AppCompatActivity {
 				.subscribe(consumer);
 
 	}
+
+
+	private void test22(){
+		Api api = RetrofitProvider.get().create(Api.class);
+		api.getPictureCategoryInfo()
+				.subscribeOn(Schedulers.io())               //在IO线程进行网络请求
+				.observeOn(AndroidSchedulers.mainThread())  //回到主线程去处理请求结果
+				.subscribe(new Observer<PictureCategory>() {
+					@Override
+					public void onSubscribe(Disposable d) {
+
+					}
+
+					@Override
+					public void onNext(PictureCategory pictureCategory) {
+						Log.d(TAG, "onNext : " + pictureCategory.toString());
+					}
+
+					@Override
+					public void onError(Throwable e) {
+						Toast.makeText(mContext, "登录失败", Toast.LENGTH_SHORT).show();
+					}
+
+					@Override
+					public void onComplete() {
+						Toast.makeText(mContext, "登录成功", Toast.LENGTH_SHORT).show();
+					}
+				});
+	}
+
 
 }
