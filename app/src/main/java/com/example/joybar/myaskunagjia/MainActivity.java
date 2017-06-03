@@ -163,6 +163,7 @@ public class MainActivity extends BaseActivity {
         initButton(btn20,R.id.btn20, com.example.joybar.myaskunagjia.demo.drawable.MainActivity.class);
         initButton(btn21,R.id.btn21, com.example.joybar.myaskunagjia.demo.databinding.MainActivity.class);
         initButton(btn22,R.id.btn22, com.example.joybar.myaskunagjia.demo.stucture.MainActivityStructure.class);
+        initButton(btn23,R.id.btn23, com.example.joybar.myaskunagjia.demo.otherfunc.MainActivity.class);
 
     }
 

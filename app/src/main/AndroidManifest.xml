@@ -59,6 +59,7 @@
         <activity android:name=".demo.webview.MainActivity" />
         <activity android:name=".demo.webview.MainActivity2" />
         <activity android:name=".demo.webview.MainActivity3" />
+        <activity android:name=".demo.webview.MainActivity4" />
         <activity android:name=".demo.toast.MainActivity" />
         <activity android:name=".demo.animation.MainActivityGuide" />
         <activity android:name=".demo.animation.demo1.MainActivity" />
@@ -124,6 +125,31 @@
         <activity android:name="com.example.joybar.myaskunagjia.demo.stucture.MainActivityStructure" />
         <activity android:name="com.example.joybar.myaskunagjia.demo.stucture.mvp.UsersActivity"
             android:theme="@style/AppTheme.OverlapSystemBar"/>
+
+        <activity android:name="com.example.joybar.myaskunagjia.demo.stucture.url_scheme.MainActivity" />
+
+
+        <activity
+            android:name="com.example.joybar.myaskunagjia.demo.stucture.url_scheme.UrlSchemeActivity"
+            android:theme="@style/AppTheme">
+            <!--要想在别的App上能成功调起App，必须添加intent过滤器-->
+            <intent-filter>
+                <!--协议部分，随便设置-->
+                <data android:scheme="xl"
+                    android:host="goods"
+                    android:path="/goodsDetail"
+                    android:port="8888"/>
+                <!--下面这几行也必须得设置-->
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name="com.example.joybar.myaskunagjia.demo.otherfunc.MainActivity" />
+
+        <activity android:name="com.example.joybar.myaskunagjia.demo.otherfunc.startotherapp.MainActivity" />
+
 
         <meta-data
             android:name="UMENG_CHANNEL"

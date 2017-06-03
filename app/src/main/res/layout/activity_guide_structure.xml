@@ -27,7 +27,7 @@
         android:id="@+id/btn4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="btn4" />
+        android:text="url scheme" />
 
     <Button
         android:id="@+id/btn5"

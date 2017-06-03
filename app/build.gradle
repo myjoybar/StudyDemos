@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'com.antfortune.freeline'
 //用于release版本的包名
 def releaseTime() {
     return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
@@ -7,11 +7,13 @@ def releaseTime() {
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
-
+    buildToolsVersion '25.0.2'
+    freeline {
+        hack true
+    }
     defaultConfig {
         applicationId "com.example.joybar.myaskunagjia"
-        minSdkVersion 11
+        minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -102,5 +104,6 @@ dependencies {
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.3'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.3'
     compile 'com.joybar.calendar:librarycalendar:1.0.2'
+    compile 'com.antfortune.freeline:runtime:0.8.6'
 //compile 'com.squareup.okhttp3:logging-interceptor:3.1.2'
 }

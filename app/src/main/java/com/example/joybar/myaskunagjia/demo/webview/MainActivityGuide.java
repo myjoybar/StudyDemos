@@ -18,7 +18,7 @@ public class MainActivityGuide extends BaseActivity {
     // public static final int CLICK_ADDRESS_ADD = 0;
     // 成员变量部分————————————————————————————————————————————————————————————————————————————————————————————————————————————————
     // 成员变量View部分————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-    private Button btn,btn2,btn3;
+    private Button btn,btn2,btn3,btn4;
     // private TextView tv_register, tv_reget_pwd;
     // 成员变量adapter部分————————————————————————————————————————————————————————————————————————————————————————————————————————————————
     // 成员变量List部分————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -89,9 +89,6 @@ public class MainActivityGuide extends BaseActivity {
 
     @Override
     protected void setLinstener() {
-        btn.setOnClickListener(this);
-        btn2.setOnClickListener(this);
-        btn3.setOnClickListener(this);
 
     }
 
@@ -100,6 +97,7 @@ public class MainActivityGuide extends BaseActivity {
         initButton(btn,R.id.btn,MainActivity.class);
         initButton(btn2,R.id.btn2,MainActivity2.class);
         initButton(btn3,R.id.btn3,MainActivity3.class);
+        initButton(btn4,R.id.btn4,MainActivity4.class);
     }
 
     //网络请求部分————————————————————————————————————————————————————————————————————————————————————————————————————————————————

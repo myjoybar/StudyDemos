@@ -113,6 +113,7 @@ public class MainActivityStructure extends BaseActivity {
     @Override
     protected void setLinstener() {
         initButton(btn1, R.id.btn1, com.example.joybar.myaskunagjia.demo.stucture.mvp.UsersActivity.class);
+        initButton(btn4, R.id.btn4, com.example.joybar.myaskunagjia.demo.stucture.url_scheme.MainActivity.class);
 //        initButton(btn2,R.id.btn2,MainActivity2.class);
 //        initButton(btn3,R.id.btn3,MainActivity3.class);
     }

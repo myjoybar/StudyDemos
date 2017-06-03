@@ -3,6 +3,7 @@ package com.example.joybar.myaskunagjia.application;
 import android.app.Application;
 import android.content.Context;
 
+import com.antfortune.freeline.FreelineCore;
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 
@@ -18,6 +19,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        FreelineCore.init(this);
         initContext();
         initLeakCanary();
     }

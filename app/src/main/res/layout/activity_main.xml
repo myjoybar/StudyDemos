@@ -147,7 +147,7 @@
                 android:id="@+id/btn23"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="23 " />
+                android:text="23  oher func" />
 
             <Button
                 android:id="@+id/btn24"

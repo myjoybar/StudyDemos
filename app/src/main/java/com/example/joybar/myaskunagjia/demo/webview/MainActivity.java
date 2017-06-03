@@ -2,9 +2,12 @@ package com.example.joybar.myaskunagjia.demo.webview;
 
 
 import android.app.Activity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.view.KeyEvent;
+import android.util.Log;
 import android.view.View;
+import android.webkit.DownloadListener;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
@@ -17,6 +20,7 @@ import com.example.joybar.myaskunagjia.R;
 import com.example.joybar.myaskunagjia.commom.T;
 
 public class MainActivity extends Activity   implements View.OnClickListener {
+    private final static String TAG ="MainActivity";
     private WebView webView;
     private Button btn_back,btn_refresh;
     private TextView tv_title;
@@ -29,6 +33,30 @@ public class MainActivity extends Activity   implements View.OnClickListener {
 
     }
 
+    private void testLaunchStore( WebView webView){
+        String url = "market://details?id=com.crowdstar.covetfashion&referrer=adjust_reftag%3DcAvFeayZTEoXY%26utm_source%3DAppLift%26utm_campaign%3DCF_Android_ALL_Phone_undefined_RON_CID9196%26utm_content%3D%257Baffilliate_id%257D";
+        String  url1 = new String(url);
+        String marketTag = "market://details?";
+        String urlTag = "https://play.google.com/store/apps/details?";
+        url1 = url1.replace(marketTag,urlTag);
+        Log.d(TAG, "url ="+url );
+        Log.d(TAG, "url1 ="+url1 );
+        try {
+            Log.d(TAG, "launch " );
+            MainActivity.this.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+
+        }catch (Exception e){
+            Log.d(TAG, "launch error" );
+
+           // webView.loadUrl(url1);
+        }
+
+        String ss = "https://play.google.com/store/apps/details?id=com.crowdstar.covetfashion&referrer=adjust_reftag%3DcAvFeayZTEoXY%26utm_source%3DAppLift%26utm_campaign%3DCF_Android_ALL_Phone_undefined_RON_CID9196%26utm_content%3D%257Baffilliate_id%257D";
+        webView.loadUrl(url1);
+//        Log.d(TAG, "ss = "+ss );
+        webView.loadUrl(ss);
+
+    }
 
     private void init() {
 
@@ -58,8 +86,12 @@ public class MainActivity extends Activity   implements View.OnClickListener {
 
 
         //WebView加载web资源
-        webView.loadUrl("http://android.dev.bai.ai/share/share/1?android=1");
+//        webView.loadUrl("http://android.dev.bai.ai/share/share/1?android=1");
         // webView.loadUrl("http://baidu.com");
+        String url2 = "https://play.google.com/store/apps/details?id=com.scopely.wheeloffortune&referrer=adjust_reftag%3DcE9U5lXYszRvQ%26utm_source%3Dadaction%2Binteractive%26utm_campaign%3Dwof-adaction-US-whitelist-a-android-a-a-a-m-null-s-cpi%26utm_content%3D1790_18133830";
+      //  testLaunchStore(webView);
+         webView.loadUrl(url2);
+
 
 
         //覆盖WebView默认使用第三方或系统默认浏览器打开网页的行为，使网页用WebView打开
@@ -68,8 +100,9 @@ public class MainActivity extends Activity   implements View.OnClickListener {
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 // TODO Auto-generated method stub
                 //返回值是false的时候控制去WebView打开，为true调用系统浏览器或第三方浏览器
+                Log.d(TAG, "url="+url);
                 view.loadUrl(url);
-                 return false;
+                 return true;
 
               //  return super.shouldOverrideUrlLoading(view, url);
             }
@@ -83,6 +116,16 @@ public class MainActivity extends Activity   implements View.OnClickListener {
                 }
                 tv_title.setText(title);
                 super.onReceivedTitle(view, title);
+            }
+        });
+
+        webView.setDownloadListener(new DownloadListener() {
+            @Override
+            public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
+                Log.d(TAG, "download_url="+url);
+                Uri uri = Uri.parse(url);
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
             }
         });
     }
