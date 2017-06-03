@@ -6,7 +6,7 @@ import java.util.List;
  * Created by joybar on 2017/6/1.
  */
 
-public class PictureCategory {
+public class PictureCategoryList {
 
 
  /**

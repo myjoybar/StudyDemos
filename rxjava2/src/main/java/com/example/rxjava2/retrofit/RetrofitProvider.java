@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 public class RetrofitProvider {
-	private static final String ENDPOINT = "http://www.tngou.net/tnfs/api/list/";
+	private static final String ENDPOINT = "http://www.tngou.net/tnfs/api/";
 
 	public static Retrofit get() {
 		OkHttpClient.Builder builder = new OkHttpClient().newBuilder();
