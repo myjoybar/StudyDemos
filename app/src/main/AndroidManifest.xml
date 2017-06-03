@@ -151,6 +151,9 @@
         <activity android:name="com.example.joybar.myaskunagjia.demo.otherfunc.startotherapp.MainActivity" />
 
 
+
+        <activity android:name="com.example.joybar.myaskunagjia.demo.testapplication.TestApplicationActivity" />
+
         <meta-data
             android:name="UMENG_CHANNEL"
             android:value="${UMENG_CHANNEL_VALUE}" />

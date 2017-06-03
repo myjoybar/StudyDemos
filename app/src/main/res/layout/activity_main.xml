@@ -1,147 +1,148 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
-        android:fillViewport="true" >
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/btn1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="1 okhttp" />
+                android:text="1 okhttp"/>
 
             <Button
                 android:id="@+id/btn2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="2 scroll " />
+                android:text="2 scroll "/>
 
             <Button
                 android:id="@+id/btn3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="3 tanmu" />
+                android:text="3 tanmu"/>
 
             <Button
                 android:id="@+id/btn4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="4 pop不可用 " />
+                android:text="4 pop不可用 "/>
 
             <Button
                 android:id="@+id/btn5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="5 gesture " />
+                android:text="5 gesture "/>
 
             <Button
                 android:id="@+id/btn6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="6 TitleBar " />
+                android:text="6 TitleBar "/>
 
             <Button
                 android:id="@+id/btn7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="7 webview " />
+                android:text="7 webview "/>
 
             <Button
                 android:id="@+id/btn8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="8 Toast" />
+                android:text="8 Toast"/>
 
             <Button
                 android:id="@+id/btn9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="9 anni" />
+                android:text="9 anni"/>
 
             <Button
                 android:id="@+id/btn10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="10 MD" />
-
+                android:text="10 MD"/>
 
 
             <Button
                 android:id="@+id/btn12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="12 niceair" />
+                android:text="12 niceair"/>
 
             <Button
                 android:id="@+id/btn13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="13 Eventbus" />
+                android:text="13 Eventbus"/>
 
 
             <Button
                 android:id="@+id/btn14"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="14 xiangji1" />
+                android:text="14 xiangji1"/>
 
 
             <Button
                 android:id="@+id/btn15"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="15 xiangji2" />
+                android:text="15 xiangji2"/>
 
             <Button
                 android:id="@+id/btn16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="16 MVP" />
+                android:text="16 MVP"/>
+
             <Button
                 android:id="@+id/btn17"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="17 gitHub " />
+                android:text="17 gitHub "/>
 
             <Button
                 android:id="@+id/btn18"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="18 RX " />
+                android:text="18 RX "/>
 
             <Button
                 android:id="@+id/btn19"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="19 Retrofit" />
+                android:text="19 Retrofit"/>
 
 
             <Button
                 android:id="@+id/btn20"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="20 drawable utils " />
+                android:text="20 drawable utils "/>
+
             <Button
                 android:id="@+id/btn21"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="21 databinding" />
+                android:text="21 databinding"/>
 
             <Button
                 android:id="@+id/btn22"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="22 structure" />
+                android:text="22 structure"/>
 
             <Button
                 android:id="@+id/btn23"
@@ -153,49 +154,50 @@
                 android:id="@+id/btn24"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="24 " />
+                android:text="24 Testapplication "/>
 
 
             <Button
                 android:id="@+id/btn25"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="25 " />
+                android:text="25 "/>
 
             <Button
                 android:id="@+id/btn26"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="26 " />
+                android:text="26 "/>
 
             <Button
                 android:id="@+id/btn27"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="27 " />
+                android:text="27 "/>
 
             <Button
                 android:id="@+id/btn28"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="28 " />
+                android:text="28 "/>
 
             <Button
                 android:id="@+id/btn29"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="29 " />
+                android:text="29 "/>
 
             <Button
                 android:id="@+id/btn30"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="30" />
+                android:text="30"/>
+
             <Button
                 android:id="@+id/btn31"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="31" />
+                android:text="31"/>
         </LinearLayout>
     </ScrollView>
 
