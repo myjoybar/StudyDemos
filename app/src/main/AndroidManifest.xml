@@ -155,6 +155,9 @@
 
 
         <activity android:name="com.example.joybar.myaskunagjia.demo.testapplication.TestApplicationActivity"/>
+        <activity android:name="com.example.joybar.myaskunagjia.demo.md.ConstraintLayout.ConstraintLayoutActivity"/>
+
+
 
         <meta-data
             android:name="UMENG_CHANNEL"

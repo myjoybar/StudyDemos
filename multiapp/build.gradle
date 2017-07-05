@@ -1,0 +1,119 @@
+apply plugin: 'com.android.application'
+
+def releaseTime() {
+   // return new Date().format("yyyy-MM-dd HH:mm:ss", TimeZone.getTimeZone("UTC"))
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+
+    defaultConfig {
+        applicationId "com.joybar.multiapp"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    signingConfigs {
+        config {
+            storeFile file("./src/main/doc/test_realese.jks")
+            keyAlias "test"
+            storePassword "123456"
+            keyPassword "123456"
+        }
+        debug {
+            storeFile file("./src/main/doc/debug.jks")
+            keyAlias "debug"
+            storePassword "123456"
+            keyPassword "123456"
+        }
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+            debuggable true
+            minifyEnabled false  //不启用Proguard
+            shrinkResources false //是否清理无用资源,依赖于minifyEnabled
+            zipAlignEnabled false //是否启用zipAlign压缩
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", "BUILD_TYPE_DEBUG", "true"
+            buildConfigField("String", "BUILD_TYPE_MODE", project.build_type_mode)
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    def fileName = "multiapp_debug_V${defaultConfig.versionName}_${releaseTime()}.apk"
+                    output.outputFile = new File(outputFile.parent, fileName)
+                }
+            }
+        }
+        alpa {
+            signingConfig signingConfigs.debug
+            debuggable true
+            minifyEnabled false  //不启用Proguard
+            shrinkResources false //是否清理无用资源,依赖于minifyEnabled
+            zipAlignEnabled false //是否启用zipAlign压缩0
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "boolean", "BUILD_TYPE_DEBUG", project.build_type_debug
+            buildConfigField("String", "BUILD_TYPE_MODE", '"alpa"')
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    def fileName = "multiapp_alpa_V${defaultConfig.versionName}_${releaseTime()}.apk"
+                    output.outputFile = new File(outputFile.parent, fileName)
+                }
+            }
+        }
+        release {
+            signingConfig signingConfigs.config
+            debuggable true
+            shrinkResources true //是否清理无用资源,依赖于minifyEnabled
+            zipAlignEnabled true //是否启用zipAlign压缩
+            minifyEnabled true //启用Proguard
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            shrinkResources true //去除无用的resource文件
+            buildConfigField "boolean", "BUILD_TYPE_DEBUG", "false"
+            buildConfigField("String", "BUILD_TYPE_MODE", project.build_type_mode)
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    def fileName = "multiapp_release_V${defaultConfig.versionName}_${releaseTime()}.apk"
+                    output.outputFile = new File(outputFile.parent, fileName)
+
+                }
+            }
+        }
+    }
+//
+//    productFlavors {
+//        //新增渠道staging，表示调试阶段的发布
+//        staging {
+//            applicationId "me.multiapp.app.staging"
+//            versionName "2.0.0"
+//        }
+//
+//        //新增渠道production，表示产品发布阶段的发布
+//        production {
+//            applicationId "me.multiapp.app.production"
+//            versionName "2.0.0"
+//
+//        }
+//        //其他不同apk市场渠道添加，类似...
+//    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    testCompile 'junit:junit:4.12'
+}
