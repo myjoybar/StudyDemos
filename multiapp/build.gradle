@@ -52,6 +52,7 @@ android {
                     output.outputFile = new File(outputFile.parent, fileName)
                 }
             }
+
         }
         alpa {
             signingConfig signingConfigs.debug
@@ -90,22 +91,25 @@ android {
             }
         }
     }
-//
-//    productFlavors {
-//        //新增渠道staging，表示调试阶段的发布
-//        staging {
-//            applicationId "me.multiapp.app.staging"
-//            versionName "2.0.0"
-//        }
-//
-//        //新增渠道production，表示产品发布阶段的发布
-//        production {
-//            applicationId "me.multiapp.app.production"
-//            versionName "2.0.0"
-//
-//        }
-//        //其他不同apk市场渠道添加，类似...
-//    }
+
+    productFlavors {
+        //新增渠道staging，表示调试阶段的发布
+        staging {
+            applicationId "me.multiapp.app.staging"
+            versionName "2.0.0"
+            project.ext.set("build_type_mode", '"debug"')
+          buildConfigField "String", "BUILD_VERSION_NAME_1", rootProject.ext.staging.versionName1
+        }
+
+        //新增渠道production，表示产品发布阶段的发布
+        production {
+            applicationId "me.multiapp.app.production"
+            versionName "2.0.0"
+          buildConfigField "String", "BUILD_VERSION_NAME_1", rootProject.ext.production.versionName1
+
+        }
+        //其他不同apk市场渠道添加，类似...
+    }
 }
 
 dependencies {

@@ -34,6 +34,7 @@ public class CopyActivity extends BaseActivity {
         initData();
         setLinstener();
         fillData();
+
     }
 
     @Override

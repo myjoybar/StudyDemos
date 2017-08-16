@@ -8,6 +8,24 @@ ext {
             versionName:"1.2.1"
     ]
 
+    dependencies = [
+            supportv4 : "com.android.support:support-v4:23.4.0",
+            supportv7 : "com.android.support:appcompat-v7:23.4.0",
+            recyclerviewv7 : 'com.android.support:recyclerview-v7:23.4.0'
+    ]
+
+    staging = [
+            versionCode1:348,
+            versionName1:'"3.0.4"',
+
+    ]
+    production = [
+            versionCode1:190,
+            versionName1:'"3.0.3"'
+    ]
+
+
+
 }
 project.ext.set("build_type_debug", "true")
 project.ext.set("build_type_mode", '"debug"')
