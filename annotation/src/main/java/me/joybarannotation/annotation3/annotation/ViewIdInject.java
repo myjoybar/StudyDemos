@@ -12,4 +12,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface ViewIdInject {
 	int id() default -1;
+	boolean isClickable() default false;
+
 }

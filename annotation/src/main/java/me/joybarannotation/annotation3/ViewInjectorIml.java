@@ -126,6 +126,33 @@ public class ViewInjectorIml<T> implements ViewInjector {
 							} catch (IllegalAccessException e) {
 								e.printStackTrace();
 							}
+
+
+							//判断绑定的该类是否实现了View.OnClickListener接口
+							Class<?> inter[] = clientClass.getInterfaces();
+							for (Class<?> c:inter){
+								if (c.getName().equals(View.OnClickListener.class.getName())){
+									if (viewIdInject.isClickable()) {
+										//得到setOnclickListener（）方法
+										try {
+											Method setOnclick = field.getType().getMethod("setOnClickListener",View.OnClickListener.class);
+											//调用该方法，为字段设置监听
+											try {
+												setOnclick.invoke(field.get(activity),activity);
+											} catch (IllegalAccessException e) {
+												e.printStackTrace();
+											} catch (InvocationTargetException e) {
+												e.printStackTrace();
+											}
+										} catch (NoSuchMethodException e) {
+											e.printStackTrace();
+										}
+
+									}
+								}
+							}
+
+
 						}
 					}
 				}
