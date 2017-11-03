@@ -1,1 +1,1 @@
-include ':app', ':library_listview', ':library_canlender', ':rxjava2', ':changethememode', ':multiapp', ':loaderappplugin', ':loaderresource', ':annotation', ':libraryutil'
+include ':app', ':library_listview', ':library_canlender', ':rxjava2', ':changethememode', ':multiapp', ':loaderappplugin', ':loaderresource', ':annotation', ':libraryutil', ':appcomponent'
