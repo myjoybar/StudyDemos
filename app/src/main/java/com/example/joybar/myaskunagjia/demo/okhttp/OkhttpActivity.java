@@ -135,12 +135,13 @@ public class OkhttpActivity extends BaseActivity {
 
         call.enqueue(new Callback() {
             @Override
-            public void onFailure(Request request, IOException e) {
+            public void onFailure(Call call, IOException e) {
+
             }
 
             @Override
-            public void onResponse(final Response response) throws IOException {
-               final String htmlStr =  response.body().string();
+            public void onResponse(Call call, Response response) throws IOException {
+                final String htmlStr = response.body().string();
 //                Looper.prepare();
 //                T.showLong(mContext, htmlStr);
 //                Looper.loop();
@@ -155,6 +156,8 @@ public class OkhttpActivity extends BaseActivity {
 
                 });
             }
+
+
         });
 
 

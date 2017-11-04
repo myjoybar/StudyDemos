@@ -158,7 +158,7 @@ public class MainActivity extends BaseActivity {
         initButton(btn15,R.id.btn15,com.example.joybar.myaskunagjia.demo.xiangji2.MainActivity.class);
         initButton(btn16,R.id.btn16,com.example.joybar.myaskunagjia.demo.mvp.MainActivity.class);
         initButton(btn17,R.id.btn17,com.example.joybar.myaskunagjia.demo.github.MainActivityGuideGit.class);
-        initButton(btn18,R.id.btn18,com.example.joybar.myaskunagjia.demo.RXJava.MainActivityRx.class);
+        //initButton(btn18,R.id.btn18,com.example.joybar.myaskunagjia.demo.RXJava.MainActivityRx.class);
         initButton(btn19,R.id.btn19,com.example.joybar.myaskunagjia.demo.Retrofit.activity.MainActivity.class);
         initButton(btn20,R.id.btn20, com.example.joybar.myaskunagjia.demo.drawable.MainActivity.class);
         initButton(btn21,R.id.btn21, com.example.joybar.myaskunagjia.demo.databinding.MainActivity.class);

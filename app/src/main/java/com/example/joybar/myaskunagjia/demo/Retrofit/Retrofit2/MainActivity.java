@@ -142,7 +142,7 @@ public class MainActivity extends BaseActivity {
                 client.getpicByID(18);
         call.enqueue(new Callback<ImageShowMode>() {
             @Override
-            public void onResponse(Response<ImageShowMode> response) {
+            public void onResponse(Call<ImageShowMode> call, Response<ImageShowMode> response) {
                 pbar.setVisibility(View.INVISIBLE);
                 ImageShowMode modelBean = response.body();
 
@@ -177,9 +177,11 @@ public class MainActivity extends BaseActivity {
             }
 
             @Override
-            public void onFailure(Throwable t) {
+            public void onFailure(Call<ImageShowMode> call, Throwable t) {
 
             }
+
+
         });
     }
 

@@ -86,7 +86,8 @@ public class MainActivity extends AppCompatActivity {
 
         call.enqueue(new Callback<ModelBean>() {
             @Override
-            public void onResponse(Response<ModelBean> response) {
+            public void onResponse(Call<ModelBean> call, Response<ModelBean> response) {
+
                 pbar.setVisibility(View.INVISIBLE);
                 ModelBean modelBean = response.body();
 
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                     tv.setText(modelBean.toString());
 
                 } else {
-                  //  404 or the response cannot be converted
+                    //  404 or the response cannot be converted
                     //response存在什么问题，比如404什么的，onResponse也会被调用
                     //从response.errorBody().string()中获取错误信息
                     //不能背解析的情况下，response.body()会返回null
@@ -123,12 +124,14 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Throwable t) {
+            public void onFailure(Call<ModelBean> call, Throwable t) {
                 Logger.init("AAA");
                 Logger.d("AA", "error");
                 tv.setText("error");
                 pbar.setVisibility(View.INVISIBLE);
             }
+
+
         });
     }
 
@@ -142,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
 
         call.enqueue(new Callback<ModelBean>() {
             @Override
-            public void onResponse(Response<ModelBean> response) {
+            public void onResponse(Call<ModelBean> call, Response<ModelBean> response) {
                 pbar.setVisibility(View.INVISIBLE);
                 ModelBean modelBean = response.body();
                 if (null != modelBean) {
@@ -157,12 +160,14 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Throwable t) {
+            public void onFailure(Call<ModelBean> call, Throwable t) {
                 Logger.init("AAA");
                 Logger.d("AA", "error");
                 tv.setText("error");
                 pbar.setVisibility(View.INVISIBLE);
             }
+
+
         });
     }
 
@@ -175,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
                 client.setLoginService("15269627973", "123456", "consignor");
         call.enqueue(new Callback<Model2>() {
             @Override
-            public void onResponse(Response<Model2> response) {
+            public void onResponse(Call<Model2> call, Response<Model2> response) {
                 pbar.setVisibility(View.INVISIBLE);
                 L.i("AAA", " response.toString()= " + response.toString());
                 L.i("AAA", "response.body().toString()= " + response.body().toString()
@@ -193,12 +198,13 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Throwable t) {
-
+            public void onFailure(Call<Model2> call, Throwable t) {
                 Logger.d("AA", "error");
                 tv.setText("error");
                 pbar.setVisibility(View.INVISIBLE);
             }
+
+
         });
     }
 
@@ -221,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
 
         call.enqueue(new Callback<Model3>() {
             @Override
-            public void onResponse(Response<Model3> response) {
+            public void onResponse(Call<Model3> call, Response<Model3> response) {
                 pbar.setVisibility(View.INVISIBLE);
 
                 Model3 modelBean = response.body();
@@ -235,12 +241,12 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Throwable t) {
-
+            public void onFailure(Call<Model3> call, Throwable t) {
                 Logger.d("AA", "error");
                 tv.setText("error");
                 pbar.setVisibility(View.INVISIBLE);
             }
+
         });
     }
 
