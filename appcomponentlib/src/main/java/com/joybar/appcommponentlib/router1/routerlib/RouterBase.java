@@ -34,7 +34,6 @@ public abstract class RouterBase<T> implements Router<T, Intent> {
             throwException(rule);
         }
         return new Intent(context, klass);
-
     }
 
     public abstract void throwException(Rule rule);
