@@ -10,6 +10,6 @@ public interface Router<T, V> {
 
     void addRouter(Rule rule);
 
-    V invokeRouter(Context ctx, Rule.RuleKey ruleKey);
+    V invokeRouter(Context context, Rule.RuleKey ruleKey);
 
 }

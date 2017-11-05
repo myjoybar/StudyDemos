@@ -11,7 +11,6 @@ public class Rule {
     private String scheme;
     private Class classz;
 
-
     public Rule(String module, String pattern, String scheme, Class classz) {
         this.module = module;
         this.pattern = pattern;
@@ -77,7 +76,6 @@ public class Rule {
             this.scheme = scheme;
         }
 
-
         public String getScheme() {
             return scheme;
         }
@@ -116,6 +114,5 @@ public class Rule {
             return super.equals(obj);
         }
     }
-
 
 }

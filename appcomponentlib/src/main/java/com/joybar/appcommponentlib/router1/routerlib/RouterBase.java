@@ -23,7 +23,7 @@ public abstract class RouterBase<T> implements Router<T, Intent> {
     }
 
     @Override
-    public Intent invokeRouter(Context ctx, Rule.RuleKey ruleKey) {
+    public Intent invokeRouter(Context context, Rule.RuleKey ruleKey) {
 
         Rule rule = ruleMap.get(ruleKey);
         if (rule==null) {
@@ -33,7 +33,7 @@ public abstract class RouterBase<T> implements Router<T, Intent> {
         if (klass == null) {
             throwException(rule);
         }
-        return new Intent(ctx, klass);
+        return new Intent(context, klass);
 
     }
 
