@@ -12,7 +12,7 @@ public class RouterHelper {
     public static void Init(String className) {
         try {
             className = Config.ROUTER_MANAGER_PKN + "." + className;
-            System.out.println("=====================className=" + className);
+            System.out.println("=====================classFullName=" + className);
             Class klass = Class.forName(className);
             Method method = klass.getDeclaredMethod(Config.ROUTER_MANAGER_METHOD_NAME);
             System.out.println("=====================method=" + method);

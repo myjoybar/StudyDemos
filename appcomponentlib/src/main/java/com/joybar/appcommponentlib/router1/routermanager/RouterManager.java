@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import com.joybar.appcommponentlib.router1.exception.NoRouterException;
 import com.joybar.appcommponentlib.router1.routerlib.RouterActivity;
 import com.joybar.appcommponentlib.router1.routerlib.RouterBroadcast;
 import com.joybar.appcommponentlib.router1.routerlib.RouterService;
@@ -39,28 +40,28 @@ public class RouterManager {
     }
 
 
-    public void addActivityRouter(String scheme, Class<? extends Activity> activityClass) {
-        routerActivity.addRouter(new Rule(RouterActivity.ACTIVITY_SCHEME, scheme, activityClass));
+    public void addActivityRouter(String module, String scheme, Class<? extends Activity> activityClass) {
+        routerActivity.addRouter(new Rule(module, RouterActivity.ACTIVITY_PATTERN, scheme, activityClass));
     }
 
-    public void addServiceRouter(String scheme, Class<? extends Service> activityClass) {
-        routerService.addRouter(new Rule(RouterService.SERVICE_SCHEME, scheme, activityClass));
+    public void addServiceRouter(String module, String scheme, Class<? extends Service> activityClass) {
+        routerService.addRouter(new Rule(module, RouterService.SERVICE_PATTERN, scheme, activityClass));
     }
 
-    public void addBroadcastRouter(String scheme, Class<? extends BroadcastReceiver> broadClass) {
-        routerBroadcast.addRouter(new Rule(RouterBroadcast.BROADCAST_SCHEME, scheme, broadClass));
+    public void addBroadcastRouter(String module, String scheme, Class<? extends BroadcastReceiver> broadClass) {
+        routerBroadcast.addRouter(new Rule(module, RouterBroadcast.BROADCAST_PATTERN, scheme, broadClass));
     }
 
-    public Intent invokeRouter(Context context, String pattern, String scheme) {
+    public Intent invokeRouter(Context context, Rule.RuleKey ruleKey) {
 
-        if (RouterActivity.ACTIVITY_SCHEME.equals(pattern)) {
-            return routerActivity.invokeRouter(context, pattern, scheme);
-        } else if (RouterActivity.ACTIVITY_SCHEME.equals(pattern)) {
-            return routerActivity.invokeRouter(context, pattern, scheme);
-        } else if (RouterActivity.ACTIVITY_SCHEME.equals(pattern)) {
-            return routerActivity.invokeRouter(context, pattern, scheme);
+        if (RouterActivity.ACTIVITY_PATTERN.equals(ruleKey.getPattern())) {
+            return routerActivity.invokeRouter(context, ruleKey);
+        } else if (RouterActivity.ACTIVITY_PATTERN.equals(ruleKey.getPattern())) {
+            return routerActivity.invokeRouter(context,ruleKey);
+        } else if (RouterActivity.ACTIVITY_PATTERN.equals(ruleKey.getPattern())) {
+            return routerActivity.invokeRouter(context, ruleKey);
         } else {
-            throw new NullPointerException(String.format("%s cannot be resolved, have you declared it in your Router?", pattern));
+            throw new NoRouterException(new Rule(ruleKey) );
         }
 
     }

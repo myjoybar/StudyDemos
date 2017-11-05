@@ -29,13 +29,13 @@ import static com.example.Config.ROUTER_MANAGER_PKN;
  * Created by joybar on 04/11/2017.
  */
 //http://www.jianshu.com/p/9e34defcb76f
-    //http://blog.csdn.net/github_35180164/article/details/52121038
-    //http://www.jianshu.com/p/95f12f72f69a
+//http://blog.csdn.net/github_35180164/article/details/52121038
+//http://www.jianshu.com/p/95f12f72f69a
 @AutoService(Processor.class)
 public class RouterProcessor extends AbstractProcessor {
 
     private Filer mFiler;
-    private Map<RouterPatternAndScheme, String> mStaticRouterMap = new HashMap<>();
+    private Map<RouterModel, String> mStaticRouterMap = new HashMap<>();
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnvironment) {
@@ -48,7 +48,7 @@ public class RouterProcessor extends AbstractProcessor {
         mStaticRouterMap.clear();
         for (TypeElement element : annotations) {
             if (element.getQualifiedName().toString().equals(RegisterRouter.class.getCanonicalName())) {
-                processRouterMap1(element, roundEnv);
+            processRouterMap1(element, roundEnv);
 
 //                try {
 //                    processRouterMap2(element, roundEnv);
@@ -70,9 +70,11 @@ public class RouterProcessor extends AbstractProcessor {
                 continue;
             }
             TypeElement typeElement = (TypeElement) e;
+            String module = typeElement.getAnnotation(RegisterRouter.class).module();
             String patten = typeElement.getAnnotation(RegisterRouter.class).patten();
             String scheme = typeElement.getAnnotation(RegisterRouter.class).scheme();
 
+            System.out.println("module=" + module);
             System.out.println("patten=" + patten);
             System.out.println("scheme=" + scheme);
         }
@@ -87,16 +89,19 @@ public class RouterProcessor extends AbstractProcessor {
                 continue;
             }
             TypeElement typeElement = (TypeElement) e;//代表被注解的元素
+            String module = typeElement.getAnnotation(RegisterRouter.class).module();
             String patten = typeElement.getAnnotation(RegisterRouter.class).patten();
             String scheme = typeElement.getAnnotation(RegisterRouter.class).scheme();
             // Class的完整路径
             String classFullName = typeElement.getQualifiedName().toString();
+
+            System.out.println("module=" + module);
             System.out.println("patten=" + patten);
             System.out.println("scheme=" + scheme);
             System.out.println("classFullName=" + classFullName);
 
-            if (mStaticRouterMap.get(new RouterPatternAndScheme(patten, scheme)) == null) {
-                mStaticRouterMap.put(new RouterPatternAndScheme(patten, scheme), classFullName);
+            if (mStaticRouterMap.get(new RouterModel(module, patten, scheme)) == null) {
+                mStaticRouterMap.put(new RouterModel(module, patten, scheme), classFullName);
             }
         }
         writeComponentFile();
@@ -107,14 +112,18 @@ public class RouterProcessor extends AbstractProcessor {
 
     private void writeComponentFile() {
 
-        for (Map.Entry<RouterPatternAndScheme, String> entry : mStaticRouterMap.entrySet()) {
+        for (Map.Entry<RouterModel, String> entry : mStaticRouterMap.entrySet()) {
+            String module = entry.getKey().module;
             String patten = entry.getKey().pattern;
+            String scheme = entry.getKey().scheme;
             String methodStatement = Config.getMethodName(patten);
-            String className = entry.getValue().replace(".", "_") + Config.ROUTER_MANAGER_CLASS_NAME;
+            String className = entry.getValue();
+
+            String createClassName = className.replace(".", "_") + Config.ROUTER_MANAGER_CLASS_NAME_SUFFIX;
             JavaFileObject javaFileObject = null;
 
             try {
-                javaFileObject = mFiler.createSourceFile(className);
+                javaFileObject = mFiler.createSourceFile(createClassName);
             } catch (IOException e) {
                 e.printStackTrace();
                 return;
@@ -130,11 +139,17 @@ public class RouterProcessor extends AbstractProcessor {
             printWriter.println("import android.app.Activity;");
             printWriter.println("import android.app.Service;");
             printWriter.println("import android.content.BroadcastReceiver;");
-            printWriter.println("public class " + className + " {");
+            printWriter.println("public class " + createClassName + " {");
             printWriter.println("public static void addRouter() {");
 
-            printWriter.println("com.joybar.appcommponentlib.router1.routermanager.RouterManager.getInstance()." + methodStatement + "(\"" + ((RouterPatternAndScheme) entry.getKey()).scheme
-                    + "\", " + entry.getValue() + ".class);");
+
+            printWriter.println("com.joybar.appcommponentlib.router1.routermanager.RouterManager.getInstance()." + methodStatement
+                    + "(\"" + module
+                    + "\", "
+                    + "\"" + scheme
+                    + "\", "
+                    + className + ".class" +
+                    ");");
 
             printWriter.println("}");
             printWriter.println("}");
@@ -152,6 +167,7 @@ public class RouterProcessor extends AbstractProcessor {
                 continue;
             }
             TypeElement typeElement = (TypeElement) e;
+            String module =typeElement.getAnnotation(RegisterRouter.class).module();
             String patten = typeElement.getAnnotation(RegisterRouter.class).patten();
             String scheme = typeElement.getAnnotation(RegisterRouter.class).scheme();
             String fullName = typeElement.getQualifiedName().toString();
@@ -172,8 +188,8 @@ public class RouterProcessor extends AbstractProcessor {
             MethodSpec computeRange = computeRange("multiply10to20", 10, 20, "*");
 
 
-            MethodSpec addRouter = computeAddRouter(Config.ROUTER_MANAGER_METHOD_NAME, patten, scheme, typeElement.getQualifiedName().toString());
-            TypeSpec routerManger = TypeSpec.classBuilder(fullName.replace(".", "_") + Config.ROUTER_MANAGER_CLASS_NAME)
+            MethodSpec addRouter = computeAddRouter(Config.ROUTER_MANAGER_METHOD_NAME,module, patten, scheme, typeElement.getQualifiedName().toString());
+            TypeSpec routerManger = TypeSpec.classBuilder(fullName.replace(".", "_") + Config.ROUTER_MANAGER_CLASS_NAME_SUFFIX)
                     .addModifiers(Modifier.PUBLIC)
                     .addMethod(main)
                     .addMethod(computeRange)
@@ -199,7 +215,7 @@ public class RouterProcessor extends AbstractProcessor {
                 .build();
     }
 
-    private MethodSpec computeAddRouter(String methodName, String patten, String scheme, String classFullName) {
+    private MethodSpec computeAddRouter(String methodName, String module,String patten, String scheme, String classFullName) {
 
         classFullName = classFullName + ".class";
 
@@ -208,7 +224,11 @@ public class RouterProcessor extends AbstractProcessor {
                 .addModifiers(Modifier.PUBLIC, Modifier.STATIC)
                 .returns(void.class)
                 //.addStatement("com.joybar.appcommponentlib.router1.routermanager.RouterManager.getInstance()."+methodStatement+"(\"" +patten+ scheme +  "\"," + classFullName + ")")
-                .addStatement("com.joybar.appcommponentlib.router1.routermanager.RouterManager.getInstance()." + methodStatement + "(\"" + scheme + "\"," + classFullName + ")")
+                .addStatement("com.joybar.appcommponentlib.router1.routermanager.RouterManager.getInstance()." + methodStatement
+                        + "(\"" + module + "\","
+                        + "\"" + scheme + "\","
+                        + classFullName
+                        + ")")
                 .build();
 
     }
@@ -227,25 +247,29 @@ public class RouterProcessor extends AbstractProcessor {
     }
 
 
-    public static class RouterPatternAndScheme {
+    public static class RouterModel {
+        String module;
         String pattern;
         String scheme;
 
-        public RouterPatternAndScheme(String pattern, String scheme) {
+        public RouterModel(String module, String pattern, String scheme) {
+            this.module = module;
             this.pattern = pattern;
             this.scheme = scheme;
         }
 
         @Override
         public int hashCode() {
-            return pattern.hashCode() + scheme.hashCode();
+            return pattern.hashCode() + scheme.hashCode() + module.hashCode();
         }
 
         @Override
         public boolean equals(Object obj) {
-            if (obj instanceof RouterPatternAndScheme) { //
-                RouterPatternAndScheme patternAndScheme = (RouterPatternAndScheme) obj;
-                return (scheme.equals(patternAndScheme.scheme) && pattern == patternAndScheme.pattern);
+            if (obj instanceof RouterModel) {
+                RouterModel routerModel = (RouterModel) obj;
+                return (scheme.equals(routerModel.scheme)
+                        && pattern.equals(routerModel.pattern)
+                        && module.equals(routerModel.module));
             }
             return super.equals(obj);
         }

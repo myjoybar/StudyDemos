@@ -2,7 +2,7 @@ package com.joybar.appcommponentlib.router1.routerlib;
 
 import android.app.Activity;
 
-import com.joybar.appcommponentlib.router1.exception.ActivityNotRouteException;
+import com.joybar.appcommponentlib.router1.exception.NoRouterException;
 
 /**
  * Created by joybar on 04/11/2017.
@@ -10,10 +10,10 @@ import com.joybar.appcommponentlib.router1.exception.ActivityNotRouteException;
 
 public class RouterActivity<T extends Activity> extends RouterBase<T> {
 
-    public static final String ACTIVITY_SCHEME = "activity://";
+    public static final String ACTIVITY_PATTERN = "activity";
 
     @Override
-    public void throwException(String scheme) {
-        throw new ActivityNotRouteException(scheme);
+    public void throwException(Rule rule) {
+        throw new NoRouterException(rule);
     }
 }

@@ -12,7 +12,8 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.CLASS)
 public @interface RegisterRouter {
-    String patten() default "";
+    String module() default "";
+    String patten() default "activity"; //activity,service ,broadcast
     String scheme() default "";
 
 }

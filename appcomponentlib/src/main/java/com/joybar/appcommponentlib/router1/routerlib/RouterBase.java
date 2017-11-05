@@ -2,10 +2,9 @@ package com.joybar.appcommponentlib.router1.routerlib;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 
 import java.util.HashMap;
-import java.util.logging.Logger;
+import java.util.Map;
 
 /**
  * Created by joybar on 04/11/2017.
@@ -13,32 +12,31 @@ import java.util.logging.Logger;
 
 public abstract class RouterBase<T> implements Router<T, Intent> {
 
-    private HashMap<String, Rule> mRules;
+    private Map< Rule.RuleKey ,Rule> ruleMap;
 
     @Override
     public void addRouter(Rule rule) {
-        if(mRules == null){
-            mRules = new HashMap<>();
+        if (ruleMap == null) {
+            ruleMap = new HashMap(10);
         }
-        Log.d("RouterBase","============"+rule.getPattern()+rule.getScheme());
-        mRules.put(rule.getPattern()+rule.getScheme(), rule);
+        ruleMap.put(new Rule.RuleKey(rule.getModule(),rule.getPattern(),rule.getScheme()),rule);
     }
 
     @Override
-    public Intent invokeRouter(Context ctx,String pattern, String scheme) {
+    public Intent invokeRouter(Context ctx, Rule.RuleKey ruleKey) {
 
-        Rule rule = mRules.get(pattern+scheme);
-        if(rule == null){
-            throwException(pattern+scheme);
+        Rule rule = ruleMap.get(ruleKey);
+        if (rule==null) {
+            throwException(new Rule(ruleKey));
         }
         Class<T> klass = rule.getClassz();
         if (klass == null) {
-            throwException(pattern+scheme);
+            throwException(rule);
         }
         return new Intent(ctx, klass);
 
     }
 
-    public abstract void throwException(String scheme);
+    public abstract void throwException(Rule rule);
 
 }
