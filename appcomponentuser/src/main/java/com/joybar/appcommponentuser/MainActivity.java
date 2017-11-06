@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent it = RouterManager.getInstance().invokeRouter(MainActivity.this, new Rule.RuleKey("shop", RouterActivity.ACTIVITY_PATTERN, "shop_main"));
+                Intent it = RouterManager.getInstance().invokeRouter(MainActivity.this, new Rule("shop", RouterActivity.ACTIVITY_PATTERN, "shop_main"));
 
                 startActivity(it);
                 finish();

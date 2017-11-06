@@ -8,7 +8,7 @@ import com.joybar.appcommponentlib.router1.exception.NoRouterException;
  * Created by joybar on 04/11/2017.
  */
 
-public class RouterActivity<T extends Activity> extends RouterBase<T> {
+public class RouterActivity<T extends Activity> extends RouterBase {
 
     public static final String ACTIVITY_PATTERN = "activity";
 

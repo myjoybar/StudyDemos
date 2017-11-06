@@ -9,8 +9,6 @@ import com.joybar.appcommponentlib.router1.routerlib.RouterActivity;
 import com.joybar.appcommponentlib.router1.routerlib.Rule;
 import com.joybar.appcommponentlib.router1.routermanager.RouterManager;
 
-import me.joybar.appcomponent.InjectComponentUtil.InjectComponentUtil;
-
 public class MainActivity extends AppCompatActivity {
 
     private static String TAG = "MainActivity";
@@ -24,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btn_main_user).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it = RouterManager.getInstance().invokeRouter(MainActivity.this,  new Rule.RuleKey("user",RouterActivity.ACTIVITY_PATTERN,"user_main"));
+                Intent it = RouterManager.getInstance().invokeRouter(MainActivity.this,  new Rule("user",RouterActivity.ACTIVITY_PATTERN,"user_main"));
                 startActivity(it);
                 finish();
             }
@@ -33,12 +31,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void initRouter() {
 
-        InjectComponentUtil.inject("com.joybar.appcommponentuser.MainActivity");
-        InjectComponentUtil.inject("com.joybar.appcommponentshop.MainActivity");
+//        InjectComponentUtil.inject("com.joybar.appcommponentuser.MainActivity");
+//        InjectComponentUtil.inject("com.joybar.appcommponentshop.MainActivity");
 
 
-//        RouterManager.getInstance().addActivityRouter("user", "user_main", com.joybar.appcommponentuser.MainActivity.class);
-//        RouterManager.getInstance().addActivityRouter("shop", "shop_main", com.joybar.appcommponentshop.MainActivity.class);
+        RouterManager.getInstance().addActivityRouter("user", "user_main", com.joybar.appcommponentuser.MainActivity.class);
+        RouterManager.getInstance().addActivityRouter("shop", "shop_main", com.joybar.appcommponentshop.MainActivity.class);
 
 
     }

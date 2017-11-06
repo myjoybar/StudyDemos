@@ -19,51 +19,59 @@ import com.joybar.appcommponentlib.router1.routerlib.Rule;
 public class RouterManager {
 
 
-    RouterActivity routerActivity;
-    RouterBroadcast routerBroadcast;
-    RouterService routerService;
+	RouterActivity routerActivity;
+	RouterBroadcast routerBroadcast;
+	RouterService routerService;
 
 
-    public RouterManager() {
-        routerActivity = new RouterActivity();
-        routerBroadcast = new RouterBroadcast();
-        routerService = new RouterService();
+	public RouterManager() {
+		routerActivity = new RouterActivity();
+		routerBroadcast = new RouterBroadcast();
+		routerService = new RouterService();
 
-    }
+	}
 
-    private static class RouterManagerHolder {
-        public static RouterManager INSTANCE = new RouterManager();
-    }
+	private static class RouterManagerHolder {
+		public static RouterManager INSTANCE = new RouterManager();
+	}
 
-    public static RouterManager getInstance() {
-        return RouterManagerHolder.INSTANCE;
-    }
+	public static RouterManager getInstance() {
+		return RouterManagerHolder.INSTANCE;
+	}
 
 
-    public void addActivityRouter(String module, String scheme, Class<? extends Activity> activityClass) {
-        routerActivity.addRouter(new Rule(module, RouterActivity.ACTIVITY_PATTERN, scheme, activityClass));
-    }
+	public void addActivityRouter(String module, String scheme, Class<? extends Activity>
+			activityClass) {
+		routerActivity.addRouter(new Rule(module, RouterActivity.ACTIVITY_PATTERN, scheme),
+				activityClass);
+	}
 
-    public void addServiceRouter(String module, String scheme, Class<? extends Service> activityClass) {
-        routerService.addRouter(new Rule(module, RouterService.SERVICE_PATTERN, scheme, activityClass));
-    }
+	public void addServiceRouter(String module, String scheme, Class<? extends Service>
+			serviceClass) {
 
-    public void addBroadcastRouter(String module, String scheme, Class<? extends BroadcastReceiver> broadClass) {
-        routerBroadcast.addRouter(new Rule(module, RouterBroadcast.BROADCAST_PATTERN, scheme, broadClass));
-    }
+		routerService.addRouter(new Rule(module, RouterService.SERVICE_PATTERN, scheme),
+				serviceClass);
 
-    public Intent invokeRouter(Context context, Rule.RuleKey ruleKey) {
+	}
 
-        if (RouterActivity.ACTIVITY_PATTERN.equals(ruleKey.getPattern())) {
-            return routerActivity.invokeRouter(context, ruleKey);
-        } else if (RouterActivity.ACTIVITY_PATTERN.equals(ruleKey.getPattern())) {
-            return routerActivity.invokeRouter(context,ruleKey);
-        } else if (RouterActivity.ACTIVITY_PATTERN.equals(ruleKey.getPattern())) {
-            return routerActivity.invokeRouter(context, ruleKey);
-        } else {
-            throw new NoRouterException(new Rule(ruleKey) );
-        }
+	public void addBroadcastRouter(String module, String scheme, Class<? extends
+			BroadcastReceiver> broadClass) {
+		routerBroadcast.addRouter(new Rule(module, RouterBroadcast.BROADCAST_PATTERN, scheme),
+				broadClass);
+	}
 
-    }
+	public Intent invokeRouter(Context context, Rule rule) {
+
+		if (RouterActivity.ACTIVITY_PATTERN.equals(rule.getPattern())) {
+			return routerActivity.invokeRouter(context, rule);
+		} else if (RouterActivity.ACTIVITY_PATTERN.equals(rule.getPattern())) {
+			return routerActivity.invokeRouter(context, rule);
+		} else if (RouterActivity.ACTIVITY_PATTERN.equals(rule.getPattern())) {
+			return routerActivity.invokeRouter(context, rule);
+		} else {
+			throw new NoRouterException(rule);
+		}
+
+	}
 
 }

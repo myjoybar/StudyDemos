@@ -1,6 +1,22 @@
-.gradle/
-.idea/
+
 .build/.*
 build/
+
+
+
+# Git Ignore File indicating untracked files
+# Gradle Files
+
+.gradle/
+build/
+/*/build/
+
+# Local Configuration File
 local.properties
-changethememode/changethememode.xml
+
+# .iml
+
+*.iml
+/*.iml
+# .idea
+/*/.idea/

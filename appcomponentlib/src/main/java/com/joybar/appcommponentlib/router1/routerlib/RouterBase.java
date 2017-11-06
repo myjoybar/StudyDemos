@@ -10,32 +10,29 @@ import java.util.Map;
  * Created by joybar on 04/11/2017.
  */
 
-public abstract class RouterBase<T> implements Router<T, Intent> {
+public abstract class RouterBase<T extends Class> implements Router<T, Intent> {
 
-    private Map< Rule.RuleKey ,Rule> ruleMap;
+	private Map<Rule, T> ruleMap;
 
-    @Override
-    public void addRouter(Rule rule) {
-        if (ruleMap == null) {
-            ruleMap = new HashMap(10);
-        }
-        ruleMap.put(new Rule.RuleKey(rule.getModule(),rule.getPattern(),rule.getScheme()),rule);
-    }
+	@Override
+	public void addRouter(Rule rule, T t) {
+		if (ruleMap == null) {
+			ruleMap = new HashMap(10);
+		}
+		if (ruleMap.get(rule) == null) {
+			ruleMap.put(rule, t);
+		}
+	}
 
-    @Override
-    public Intent invokeRouter(Context context, Rule.RuleKey ruleKey) {
+	@Override
+	public Intent invokeRouter(Context context, Rule rule) {
+		Class<T> klass = ruleMap.get(rule);
+		if (klass == null) {
+			throwException(rule);
+		}
+		return new Intent(context, klass);
+	}
 
-        Rule rule = ruleMap.get(ruleKey);
-        if (rule==null) {
-            throwException(new Rule(ruleKey));
-        }
-        Class<T> klass = rule.getClassz();
-        if (klass == null) {
-            throwException(rule);
-        }
-        return new Intent(context, klass);
-    }
-
-    public abstract void throwException(Rule rule);
+	public abstract void throwException(Rule rule);
 
 }

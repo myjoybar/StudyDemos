@@ -8,8 +8,8 @@ import android.content.Context;
 
 public interface Router<T, V> {
 
-    void addRouter(Rule rule);
+	void addRouter(Rule rule, T t);
 
-    V invokeRouter(Context context, Rule.RuleKey ruleKey);
+	V invokeRouter(Context context, Rule rule);
 
 }

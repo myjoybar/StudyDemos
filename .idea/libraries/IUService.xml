@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="IUService">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/loaderappplugin/libs/IUService.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
