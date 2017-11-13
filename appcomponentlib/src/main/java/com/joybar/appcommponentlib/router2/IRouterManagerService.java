@@ -1,4 +1,4 @@
-package com.joybar.appcommponentlib.router1.routermanager;
+package com.joybar.appcommponentlib.router2;
 
 import android.app.Activity;
 import android.app.Fragment;

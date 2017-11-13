@@ -1,4 +1,4 @@
-package com.joybar.appcommponentlib.router1.routermanager;
+package com.joybar.appcommponentlib.router2;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -9,7 +9,7 @@ import android.support.v4.app.FragmentActivity;
  * Created by joybar on 05/11/2017.
  */
 
-public  class AbsRouterManagerService implements IRouterManagerService{
+public  class AbsRouterManagerService implements IRouterManagerService {
     @Override
     public void setRouterKey() {
         
