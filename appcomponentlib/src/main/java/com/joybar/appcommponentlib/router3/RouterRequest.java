@@ -11,7 +11,7 @@ public class RouterRequest {
 
 	private Context context;
 	private Rule3 rule;
-	private ICallBack callBack;
+	private InterceptorCallback interceptorCallback;
 	private Bundle bundle;
 
 	public Context getContext() {
@@ -30,14 +30,13 @@ public class RouterRequest {
 		this.rule = rule;
 	}
 
-	public ICallBack getCallBack() {
-		return callBack;
+	public InterceptorCallback getInterceptorCallback() {
+		return interceptorCallback;
 	}
 
-	public void setCallBack(ICallBack callBack) {
-		this.callBack = callBack;
+	public void setInterceptorCallback(InterceptorCallback interceptorCallback) {
+		this.interceptorCallback = interceptorCallback;
 	}
-
 
 	public Bundle getBundle() {
 		return bundle;

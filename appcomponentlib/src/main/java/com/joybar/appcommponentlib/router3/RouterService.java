@@ -1,16 +1,19 @@
 package com.joybar.appcommponentlib.router3;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.SparseArray;
 
+import com.joybar.appcommponentlib.router3.interceptor.RouteInterceptor;
 import com.joybar.appcommponentlib.router3.utils.CheckUtils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by joybar on 12/11/2017.
@@ -19,9 +22,11 @@ import java.util.ArrayList;
 public class RouterService implements IRouterManagerService {
 
     RouterRequest routerRequest;
+    private static List<RouteInterceptor> routeInterceptors;
 
     public RouterService(Context context) {
         routerRequest = new RouterRequest();
+        routeInterceptors = new ArrayList<>();
         routerRequest.setContext(context);
     }
 
@@ -39,12 +44,25 @@ public class RouterService implements IRouterManagerService {
 
     @Override
     public void go() {
-        Context context = routerRequest.getContext();
-        if(context == null){
-            throw new RuntimeException("context can  not be  null in RouterRequest,have your set it in  your RouterService");
+        if (!isIntercepted()) {
+            Context context = routerRequest.getContext();
+            CheckUtils.checkNotNull(context);
+            routerRequest.getContext().startActivity(buildIntent(context));
         }
+    }
+
+    @Override
+    public void goForResult(int requestCode) {
+        if (!isIntercepted()) {
+            Context context = routerRequest.getContext();
+            CheckUtils.checkNotNull(context);
+            ((Activity) routerRequest.getContext()).startActivityForResult(buildIntent(context), requestCode);
+        }
+    }
+
+    private Intent buildIntent(Context context) {
         Class klass = routerRequest.getRule().getClassz();
-        if(klass == null){
+        if (klass == null) {
             throw new RuntimeException("class can  not be  null in RouterRequest,have your set it in  your RouterService");
         }
         Intent intent = new Intent(context, routerRequest.getRule().getClassz());
@@ -52,13 +70,38 @@ public class RouterService implements IRouterManagerService {
         if (bundle != null) {
             intent.putExtras(routerRequest.getBundle());
         }
-        context.startActivity(intent);
+        return intent;
+    }
+
+
+    @Override
+    public IRouterManagerService withInterceptorCallback(InterceptorCallback interceptorCallback) {
+        routerRequest.setInterceptorCallback(interceptorCallback);
+        return this;
     }
 
     @Override
-    public IRouterManagerService setCallback(ICallBack callback) {
-        routerRequest.setCallBack(callback);
+    public IRouterManagerService addInterceptor(RouteInterceptor routeInterceptor) {
+        routeInterceptors.add(routeInterceptor);
         return this;
+    }
+
+    @Override
+    public boolean isIntercepted() {
+        for (RouteInterceptor interceptor : routeInterceptors) {
+            if (interceptor.isIntercepted(routerRequest)) {
+                InterceptorCallback interceptorCallback = routerRequest.getInterceptorCallback();
+                if(null!=interceptorCallback){
+                    interceptorCallback.onIntercept("被拦截");
+                }
+                return true;
+            }
+        }
+        InterceptorCallback interceptorCallback = routerRequest.getInterceptorCallback();
+        if(null!=interceptorCallback){
+            interceptorCallback.onContinue();
+        }
+        return false;
     }
 
     @Override
@@ -145,7 +188,6 @@ public class RouterService implements IRouterManagerService {
         routerRequest.setBundle(bundle);
         return this;
     }
-
 
 
 }

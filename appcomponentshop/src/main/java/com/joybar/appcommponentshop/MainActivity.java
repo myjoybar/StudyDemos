@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
 		Bundle mExtras = getIntent().getExtras();
 		int id = mExtras.getInt("id", 0);
-		tv.setText(tv.getText().toString()+"/n"+"传过来的ID："+id);
+		tv.setText(tv.getText().toString()+"\n"+"传过来的ID："+id);
 
 		tv.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -70,6 +70,13 @@ public class MainActivity extends AppCompatActivity {
 						.buildRule(new Rule3("user","user_main"))
 						.go();
 				finish();
+
+//				Intent mIntent = new Intent();
+//				mIntent.putExtra("change01", "1000");
+//				mIntent.putExtra("change02", "2000");
+//				// 设置结果，并进行传送
+//				MainActivity.this.setResult(3, mIntent);
+//				finish();
 
 			}
 		});
