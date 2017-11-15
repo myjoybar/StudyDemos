@@ -1,11 +1,13 @@
 package com.joybar.appcommponentlib.router3;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.SparseArray;
 
-import com.joybar.appcommponentlib.router1.routermanager.RouterManager;
+import com.joybar.appcommponentlib.router3.utils.CheckUtils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -14,33 +16,54 @@ import java.util.ArrayList;
  * Created by joybar on 12/11/2017.
  */
 
-public class Router3Manager implements IRouterManagerService {
-
+public class RouterService implements IRouterManagerService {
 
     RouterRequest routerRequest;
 
-
-    public Router3Manager() {
+    public RouterService(Context context) {
         routerRequest = new RouterRequest();
+        routerRequest.setContext(context);
     }
 
-    private static class RouterManagerHolder {
-        public static RouterManager INSTANCE = new RouterManager();
-    }
-
-    public static RouterManager getInstance() {
-        return RouterManagerHolder.INSTANCE;
+    @Override
+    public IRouterManagerService buildRule(Rule3 rule) {
+        CheckUtils.checkNotNull(rule);
+        Rule3 registerRule = RouterManager3.ruleMap.get(rule);
+        if (registerRule == null) {
+            throw new IllegalArgumentException("You cannot build an unRegisterRule,have you register it?");
+        }
+        routerRequest.setRule(registerRule);
+        return this;
     }
 
 
     @Override
-    public IRouterManagerService withRule(Rule rule) {
-        routerRequest.setRule(rule);
+    public void go() {
+        Context context = routerRequest.getContext();
+        if(context == null){
+            throw new RuntimeException("context can  not be  null in RouterRequest,have your set it in  your RouterService");
+        }
+        Class klass = routerRequest.getRule().getClassz();
+        if(klass == null){
+            throw new RuntimeException("class can  not be  null in RouterRequest,have your set it in  your RouterService");
+        }
+        Intent intent = new Intent(context, routerRequest.getRule().getClassz());
+        Bundle bundle = routerRequest.getBundle();
+        if (bundle != null) {
+            intent.putExtras(routerRequest.getBundle());
+        }
+        context.startActivity(intent);
+    }
+
+    @Override
+    public IRouterManagerService setCallback(ICallBack callback) {
+        routerRequest.setCallBack(callback);
         return this;
     }
 
     @Override
-    public IRouterManagerService withContext(Object obj) {
+    public IRouterManagerService withBundle(Bundle bundle) {
+        routerRequest.setBundle(bundle);
         return this;
     }
 
@@ -123,11 +146,6 @@ public class Router3Manager implements IRouterManagerService {
         return this;
     }
 
-
-    @Override
-    public void go() {
-        routerRequest.go();
-    }
 
 
 }

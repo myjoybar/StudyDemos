@@ -11,6 +11,8 @@ import com.example.RegisterRouter;
 import com.joybar.appcommponentlib.router1.routerlib.RouterActivity;
 import com.joybar.appcommponentlib.router1.routerlib.Rule;
 import com.joybar.appcommponentlib.router1.routermanager.RouterManager;
+import com.joybar.appcommponentlib.router3.RouterManager3;
+import com.joybar.appcommponentlib.router3.Rule3;
 
 
 @RegisterRouter(module = "shop", scheme = "shop_main")
@@ -31,12 +33,42 @@ public class MainActivity extends AppCompatActivity {
 		tv.setTextSize(50);
 		tv.setText("this is  Shop!!!, go to user");
 		setContentView(tv);
+	//	setClickForRouter1(tv);
+		setClickForRouter3(tv);
+
+	}
+
+
+
+	private void  setClickForRouter1(TextView tv){
 		tv.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 
 				Intent it = RouterManager.getInstance().invokeRouter(MainActivity.this, new Rule("user", RouterActivity.ACTIVITY_PATTERN, "user_main"));
 				startActivity(it);
+				finish();
+
+
+			}
+		});
+	}
+
+
+	private void  setClickForRouter3(TextView tv){
+
+
+		Bundle mExtras = getIntent().getExtras();
+		int id = mExtras.getInt("id", 0);
+		tv.setText(tv.getText().toString()+"/n"+"传过来的ID："+id);
+
+		tv.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+
+				RouterManager3.with(MainActivity.this)
+						.buildRule(new Rule3("user","user_main"))
+						.go();
 				finish();
 
 			}

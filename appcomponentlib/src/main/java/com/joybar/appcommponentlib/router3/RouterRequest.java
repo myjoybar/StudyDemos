@@ -1,7 +1,6 @@
 package com.joybar.appcommponentlib.router3;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
 /**
@@ -10,69 +9,43 @@ import android.os.Bundle;
 
 public class RouterRequest {
 
-    private Context context;
+	private Context context;
+	private Rule3 rule;
+	private ICallBack callBack;
+	private Bundle bundle;
 
-    private Rule rule;
-    private ICallBack callBack;
-    private Object object;
+	public Context getContext() {
+		return context;
+	}
 
-    private Bundle bundle;
+	public void setContext(Context context) {
+		this.context = context;
+	}
 
+	public Rule3 getRule() {
+		return rule;
+	}
 
-    public Context getContext() {
-        return context;
-    }
+	public void setRule(Rule3 rule) {
+		this.rule = rule;
+	}
 
-    public void setContext(Context context) {
-        this.context = context;
-    }
+	public ICallBack getCallBack() {
+		return callBack;
+	}
 
-    public Rule getRule() {
-        return rule;
-    }
-
-    public void setRule(Rule rule) {
-        this.rule = rule;
-    }
-
-    public ICallBack getCallBack() {
-        return callBack;
-    }
-
-    public void setCallBack(ICallBack callBack) {
-        this.callBack = callBack;
-    }
-
-    public Object getObject() {
-        return object;
-    }
-
-    public void setObject(Object object) {
-        this.object = object;
-    }
+	public void setCallBack(ICallBack callBack) {
+		this.callBack = callBack;
+	}
 
 
-    public Bundle getBundle() {
-        return bundle;
-    }
+	public Bundle getBundle() {
+		return bundle;
+	}
 
-    public void setBundle(Bundle bundle) {
-        this.bundle = bundle;
-    }
-
-    private Intent getIntent() {
-        Intent intent = new Intent(context, Rule.class);
-        if (bundle != null) {
-            intent.putExtras(bundle);
-        }
-        return intent;
-    }
-
-
-    public void go() {
-        Intent intent = getIntent();
-        context.startActivity(intent);
-    }
+	public void setBundle(Bundle bundle) {
+		this.bundle = bundle;
+	}
 
 
 }
