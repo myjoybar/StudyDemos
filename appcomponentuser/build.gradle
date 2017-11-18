@@ -1,6 +1,7 @@
 //apply plugin: 'com.android.application'
 apply plugin: 'com.android.library'
-apply plugin: 'com.neenbedankt.android-apt'
+//apply plugin: 'com.neenbedankt.android-apt'
+
 
 android {
     compileSdkVersion 26
@@ -14,7 +15,11 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
     }
     buildTypes {
         release {
@@ -36,6 +41,7 @@ dependencies {
 
 
     compile project(':appcomponentlibannotation')
-    //  compile project(':appcomponentlibprocessors')
-    apt project(':appcomponentlibprocessors')
+    //  apt project(':appcomponentlibprocessors')
+    compile project(':appcomponentlibprocessors')
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.0.1'
 }
