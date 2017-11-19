@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 RouterManager3.with(MainActivity.this)
                         .buildRule(new Rule3("shop", "shop_main"))
                         //.withData("id",999)
-                        .withBundle(bundle)
+                        .withExtra(bundle)
                         .addInterceptor(new TestInterceptor())
                         .withInterceptorCallback(new InterceptorCallback() {
                             @Override

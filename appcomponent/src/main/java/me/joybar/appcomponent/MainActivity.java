@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         RouterManager.getInstance().addActivityRouter("user", "user_main", com.joybar.appcommponentuser.MainActivity.class);
         RouterManager.getInstance().addActivityRouter("shop", "shop_main", com.joybar.appcommponentshop.MainActivity.class);
+
         findViewById(R.id.btn_main_user).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
