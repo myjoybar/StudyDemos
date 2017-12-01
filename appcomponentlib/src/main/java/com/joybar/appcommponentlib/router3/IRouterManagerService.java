@@ -14,7 +14,7 @@ public interface IRouterManagerService {
 
     IRouterManagerService withData(String key, Object value);
 
-    IRouterManagerService withBundle(Bundle bundle);
+    IRouterManagerService withExtra(Bundle bundle);
 
     IRouterManagerService withInterceptorCallback(InterceptorCallback interceptorCallback);
 

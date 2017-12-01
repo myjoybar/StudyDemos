@@ -105,7 +105,7 @@ public class RouterService implements IRouterManagerService {
     }
 
     @Override
-    public IRouterManagerService withBundle(Bundle bundle) {
+    public IRouterManagerService withExtra(Bundle bundle) {
         routerRequest.setBundle(bundle);
         return this;
     }

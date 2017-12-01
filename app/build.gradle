@@ -7,7 +7,7 @@ def releaseTime() {
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '25.0.2'
+    buildToolsVersion '26.0.2'
     freeline {
         hack true
     }
@@ -41,7 +41,7 @@ android {
             shrinkResources true //去除无用的resource文件
             //加载混淆配置文件
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
+//https://stackoverflow.com/questions/44239235/android-gradle-3-0-0-alpha2-plugin-cannot-set-the-value-of-read-only-property
 //
 //            applicationVariants.all { variant ->
 //                variant.outputs.each { output ->
