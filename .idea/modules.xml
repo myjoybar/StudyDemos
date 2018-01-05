@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/StudyDemos.iml" filepath="$PROJECT_DIR$/.idea/StudyDemos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/annotation/annotation.iml" filepath="$PROJECT_DIR$/annotation/annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appcomponent/appcomponent.iml" filepath="$PROJECT_DIR$/appcomponent/appcomponent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appcomponentlib/appcomponentlib.iml" filepath="$PROJECT_DIR$/appcomponentlib/appcomponentlib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appcomponentlibannotation/appcomponentlibannotation.iml" filepath="$PROJECT_DIR$/appcomponentlibannotation/appcomponentlibannotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appcomponentlibprocessors/appcomponentlibprocessors.iml" filepath="$PROJECT_DIR$/appcomponentlibprocessors/appcomponentlibprocessors.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appcomponentshop/appcomponentshop.iml" filepath="$PROJECT_DIR$/appcomponentshop/appcomponentshop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appcomponentuser/appcomponentuser.iml" filepath="$PROJECT_DIR$/appcomponentuser/appcomponentuser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/changethememode/changethememode.iml" filepath="$PROJECT_DIR$/changethememode/changethememode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dagger/dagger.iml" filepath="$PROJECT_DIR$/dagger/dagger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library_canlender/library_canlender.iml" filepath="$PROJECT_DIR$/library_canlender/library_canlender.iml" />
+      <module fileurl="file://$PROJECT_DIR$/library_listview/library_listview.iml" filepath="$PROJECT_DIR$/library_listview/library_listview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/libraryutil/libraryutil.iml" filepath="$PROJECT_DIR$/libraryutil/libraryutil.iml" />
+      <module fileurl="file://$PROJECT_DIR$/loaderappplugin/loaderappplugin.iml" filepath="$PROJECT_DIR$/loaderappplugin/loaderappplugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/loaderresource/loaderresource.iml" filepath="$PROJECT_DIR$/loaderresource/loaderresource.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multiapp/multiapp.iml" filepath="$PROJECT_DIR$/multiapp/multiapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rxjava2/rxjava2.iml" filepath="$PROJECT_DIR$/rxjava2/rxjava2.iml" />
+    </modules>
+  </component>
+</project>
