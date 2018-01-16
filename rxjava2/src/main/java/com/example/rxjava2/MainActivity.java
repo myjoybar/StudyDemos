@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.rxjava2.data.PictureCategoryList;
 import com.example.rxjava2.data.PictureDetail;
 import com.example.rxjava2.retrofit.RetrofitProvider;
+import com.example.rxjava2.retrofit.RetrofitProvider2;
 import com.example.rxjava2.service.Api;
 
 import org.reactivestreams.Subscriber;
@@ -38,6 +39,11 @@ import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.functions.Predicate;
 import io.reactivex.schedulers.Schedulers;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -64,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //test33();
                 //test34();
-                //test35();
+                test35();
                 // test41();
                // test42();
                 // test51();
@@ -80,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
               //  test83();
               //  test91();
               // test92();
-                test94();
+              //  test94();
             }
         });
 
@@ -90,7 +96,37 @@ public class MainActivity extends AppCompatActivity {
         test82();
 
 
+        final Api api = RetrofitProvider2.get().create(Api.class);
+        Call<String> call = api.getBaidu();
+        call.enqueue(new Callback<String>() {
+            @Override
+            public void onResponse(Call<String> call, Response<String> response) {
+                Log.d(TAG,"response="+response.body());
+            }
+
+            @Override
+            public void onFailure(Call<String> call, Throwable t) {
+                Log.d(TAG,"onFailure");
+            }
+        });
+
+
+
     }
+
+
+
+
+    private void  test6(){
+        //1.创建一个Retrofit对象
+        Retrofit retrofit = new Retrofit.Builder()
+                .addConverterFactory(GsonConverterFactory.create())//解析方法
+                .baseUrl("http://api.m.mtime.cn/PageSubArea/TrailerList.api/")
+                .build();
+    }
+
+
+
 
 
     //1. =======================================================

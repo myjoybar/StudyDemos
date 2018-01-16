@@ -4,6 +4,7 @@ import com.example.rxjava2.data.PictureCategoryList;
 import com.example.rxjava2.data.PictureDetail;
 
 import io.reactivex.Observable;
+import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
@@ -17,5 +18,10 @@ public interface Api {
 	Observable<PictureCategoryList> getPictureCategoryList();
 	@GET("show/")
 	Observable<PictureDetail> getPictureDetail(@Query("id") int id);
+
+	@GET("/")
+	Call<String> getBaidu();
+
+
 
 }
