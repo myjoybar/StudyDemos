@@ -1,7 +1,7 @@
-package me.joybar.dagger.module;
+package me.joybar.dagger.demo1.module;
 
 import dagger.Component;
-import me.joybar.dagger.MainActivity;
+import me.joybar.dagger.demo1.MainActivity;
 
 /**
  * Created by joybar on 23/12/2017.
