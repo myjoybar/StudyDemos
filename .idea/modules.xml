@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/StudyDemos.iml" filepath="$PROJECT_DIR$/.idea/StudyDemos.iml" />
       <module fileurl="file://$PROJECT_DIR$/androidarchitecturecomponents/androidarchitecturecomponents.iml" filepath="$PROJECT_DIR$/androidarchitecturecomponents/androidarchitecturecomponents.iml" />
       <module fileurl="file://$PROJECT_DIR$/annotation/annotation.iml" filepath="$PROJECT_DIR$/annotation/annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/aop/aop.iml" filepath="$PROJECT_DIR$/aop/aop.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/appcomponent/appcomponent.iml" filepath="$PROJECT_DIR$/appcomponent/appcomponent.iml" />
       <module fileurl="file://$PROJECT_DIR$/appcomponentlib/appcomponentlib.iml" filepath="$PROJECT_DIR$/appcomponentlib/appcomponentlib.iml" />
@@ -14,6 +15,7 @@
       <module fileurl="file://$PROJECT_DIR$/appcomponentuser/appcomponentuser.iml" filepath="$PROJECT_DIR$/appcomponentuser/appcomponentuser.iml" />
       <module fileurl="file://$PROJECT_DIR$/changethememode/changethememode.iml" filepath="$PROJECT_DIR$/changethememode/changethememode.iml" />
       <module fileurl="file://$PROJECT_DIR$/dagger/dagger.iml" filepath="$PROJECT_DIR$/dagger/dagger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/liboap/liboap.iml" filepath="$PROJECT_DIR$/liboap/liboap.iml" />
       <module fileurl="file://$PROJECT_DIR$/library_canlender/library_canlender.iml" filepath="$PROJECT_DIR$/library_canlender/library_canlender.iml" />
       <module fileurl="file://$PROJECT_DIR$/library_listview/library_listview.iml" filepath="$PROJECT_DIR$/library_listview/library_listview.iml" />
       <module fileurl="file://$PROJECT_DIR$/libraryutil/libraryutil.iml" filepath="$PROJECT_DIR$/libraryutil/libraryutil.iml" />
