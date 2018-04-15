@@ -1,50 +1,54 @@
 package test.joybar.com.aop;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+import test.joybar.com.aop.login.CheckLogin;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-		loginCheck();
-		netCheck();
-		permissionCheck();
-	}
-	private void loginCheck(){
-		findViewById(R.id.btn_login).setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final String TAG = "CheckLoginAspectJ";
 
-			}
-		});
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        findViewById(R.id.btn_login).setOnClickListener(this);
+        findViewById(R.id.btn_net).setOnClickListener(this);
+        findViewById(R.id.btn_permission).setOnClickListener(this);
+    }
 
 
-	}
-	private void netCheck(){
+    @CheckLogin
+    private void loginCheck() {
+        Log.i(TAG, "已经登陆，执行登陆后的逻辑");
+    }
 
+    private void netCheck() {
+    }
 
-		findViewById(R.id.btn_net).setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
+    private void permissionCheck() {
 
-			}
-		});
+    }
+   // @CheckLogin
+    @Override
+    public void onClick(View v) {
+        String result = "";
+        switch (v.getId()) {
 
+            case R.id.btn_login:
+                loginCheck();
+                break;
+            case R.id.btn_net:
+                netCheck();
+                break;
+            case R.id.btn_permission:
+                netCheck();
+                break;
+            default:
+                break;
+        }
 
-
-	}
-
-	private void permissionCheck(){
-
-		findViewById(R.id.btn_permission).setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-
-			}
-		});
-	}
+    }
 }
