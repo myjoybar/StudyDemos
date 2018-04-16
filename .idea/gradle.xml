@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/androidarchitecturecomponents" />
+            <option value="$PROJECT_DIR$/annotation" />
+            <option value="$PROJECT_DIR$/aop" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/appcomponent" />
+            <option value="$PROJECT_DIR$/appcomponentlib" />
+            <option value="$PROJECT_DIR$/appcomponentlibannotation" />
+            <option value="$PROJECT_DIR$/appcomponentlibprocessors" />
+            <option value="$PROJECT_DIR$/appcomponentshop" />
+            <option value="$PROJECT_DIR$/appcomponentuser" />
+            <option value="$PROJECT_DIR$/changethememode" />
+            <option value="$PROJECT_DIR$/dagger" />
+            <option value="$PROJECT_DIR$/liboap" />
+            <option value="$PROJECT_DIR$/library_canlender" />
+            <option value="$PROJECT_DIR$/library_listview" />
+            <option value="$PROJECT_DIR$/libraryutil" />
+            <option value="$PROJECT_DIR$/loaderappplugin" />
+            <option value="$PROJECT_DIR$/loaderresource" />
+            <option value="$PROJECT_DIR$/multiapp" />
+            <option value="$PROJECT_DIR$/rxjava2" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
