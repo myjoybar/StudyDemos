@@ -1,12 +1,16 @@
-
-.build/.*
-build/
-
-
+*.iml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
+/captures
+.externalNativeBuild
 
 # Git Ignore File indicating untracked files
-# Gradle Files
 
+# Gradle Files
 .gradle/
 build/
 /*/build/
@@ -15,11 +19,7 @@ build/
 local.properties
 
 # .iml
-
 *.iml
-/*.iml
-# .idea
-/*/.idea/
-.idea/.*
 
-/.idea/.*
+/.idea/
+/*/.idea/
