@@ -156,6 +156,7 @@
 
         <activity android:name="com.example.joybar.myaskunagjia.demo.testapplication.TestApplicationActivity"/>
         <activity android:name="com.example.joybar.myaskunagjia.demo.md.ConstraintLayout.ConstraintLayoutActivity"/>
+        <activity android:name="com.example.joybar.myaskunagjia.demo.customHander.CustomHandlerActivity"/>
 
 
 
