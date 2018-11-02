@@ -6,6 +6,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.nineoldandroids.animation.ValueAnimator;
@@ -14,7 +15,7 @@ import com.nineoldandroids.animation.ValueAnimator;
  * Created by joybar on 2018/11/2.
  */
 
-public class PathPainter  extends View {
+public class PathPainter1 extends View {
 
 	private PathMeasure mPathMeasure;
 	private Path mPath;
@@ -23,15 +24,19 @@ public class PathPainter  extends View {
 
 	private float mAnimatorValue = 0;
 
-	private Path mDst;
 	private float mLength;
 
-	public PathPainter(Context context) {
+
+	private float[] pos;
+	private float[] tan;
+
+
+	public PathPainter1(Context context) {
 		super(context);
 
 	}
 
-	public PathPainter(Context context, AttributeSet attrs) {
+	public PathPainter1(Context context, AttributeSet attrs) {
 		super(context, attrs);
 
 		mPathMeasure = new PathMeasure();
@@ -41,7 +46,6 @@ public class PathPainter  extends View {
 		mPath = new Path();
 		mPath.addCircle(400, 400, 100, Path.Direction.CW);
 
-		mDst = new Path();
 
 
 		mPathMeasure.setPath(mPath, true);
@@ -58,13 +62,17 @@ public class PathPainter  extends View {
 			}
 		});
 		valueAnimator.setDuration(2000);
-		valueAnimator.setRepeatCount(ValueAnimator.INFINITE);
+		valueAnimator.setRepeatCount(ValueAnimator.INFINITE);//无限循环
 		valueAnimator.start();
+
+
+		pos = new float[2];//点的坐标
+		tan = new float[2];//直角三角形两个的直角边
 
 
 	}
 
-	public PathPainter(Context context, AttributeSet attrs, int defStyleAttr) {
+	public PathPainter1(Context context, AttributeSet attrs, int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 	}
 
@@ -73,16 +81,28 @@ public class PathPainter  extends View {
 		super.onDraw(canvas);
 		//canvas.drawPath(mPath, mPaint);
 
-		mDst.reset();
-		// 硬件加速的BUG
-		mDst.lineTo(0,0);
 
-		float stop = mLength * mAnimatorValue;
-		//float start = 0;
-		float start = (float) (stop - ((0.5 - Math.abs(mAnimatorValue - 0.5)) * mLength));
-		//截取 mPath 中的一段 到 mDst 中
-		mPathMeasure.getSegment(start, stop, mDst, true);
-		canvas.drawPath(mDst, mPaint);
+
+
+		//获取在动画某一个时刻点的坐标及正切值
+		mPathMeasure.getPosTan(mLength * mAnimatorValue,pos,tan);
+
+		float degrees = (float) (Math.atan2(tan[1], tan[0]) * 180.0 / Math.PI);
+		Log.e("degrees","&&&"+degrees+"--->"+Math.atan2(tan[1], tan[0])+"--->tan[1]= "+tan[1]+"---tan[0]= "+tan[0]+"---pos[0] ="+pos[0]+"---pos[1] ="+pos[1]);
+
+		canvas.save();
+		canvas.translate(-300, -300);//将坐标系移动到定点
+
+		canvas.translate(getWidth()/2, getHeight()/2);//将坐标系移动到控件的中心位置
+
+		canvas.drawPath(mPath, mPaint); //画了一个圆
+
+		canvas.drawCircle(pos[0], pos[1], 10, mPaint);//在路径的点上绘制一个小圆
+
+		canvas.rotate(degrees);//将画布旋转 此时坐标系也跟着旋转
+		canvas.drawLine(0, -200, 100, -200, mPaint);//绘制一段长度为100的正切线 200是圆的半径
+		canvas.restore();
+
 
 	}
 }

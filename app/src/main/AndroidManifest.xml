@@ -73,6 +73,9 @@
         <activity android:name=".demo.md.recyclerview_refresh2.MainActivity"/>
         <activity android:name=".demo.md.recyclerview_refresh3.MainActivity"/>
         <activity android:name=".demo.md.recyclerview_refresh4.MainActivity"/>
+        <activity android:name="com.example.joybar.myaskunagjia.demo.md.path.MainActivity"/>
+
+
         <activity android:name=".demo.md.listview.MainActivity"/>
         <activity android:name=".demo.md.cardview.MainActivity"/>
         <activity
