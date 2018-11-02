@@ -127,6 +127,7 @@ public class MainActivityGuide extends BaseActivity {
        initButton(btn21,R.id.btn21,com.example.joybar.myaskunagjia.demo.md.mddemo.activity.SignInActivity.class);
        initButton(btn21,R.id.btn21,com.example.joybar.myaskunagjia.demo.md.mddemo.activity.SignInActivity.class);
        initButton(btn22,R.id.btn22,com.example.joybar.myaskunagjia.demo.md.ConstraintLayout.ConstraintLayoutActivity.class);
+       initButton(btn22,R.id.btn23,com.example.joybar.myaskunagjia.demo.md.layoutmanager.MainActivity.class);
 
 
     }

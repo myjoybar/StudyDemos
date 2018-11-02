@@ -179,6 +179,15 @@
                 android:layout_height="40dp"
                 android:layout_alignParentLeft="true"
                 android:text="22 ConstraintLayout "/>
+
+
+
+            <Button
+                android:id="@+id/btn23"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:text="23 自定义layoutManager "/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
