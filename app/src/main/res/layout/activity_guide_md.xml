@@ -201,7 +201,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:layout_alignParentLeft="true"
-                android:text="23 自定义layoutManager "/>
+                android:text="25 自定义path layoutManager "/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

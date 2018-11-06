@@ -6,19 +6,21 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+
 /**
  * Created by joybar on 2018/10/31.
  * 在显示每列的基础上，添加滑动功能
  * https://blog.csdn.net/user11223344abc/article/details/78080671
  */
 
-public class CustomLayouManager2ScrollYPatch extends RecyclerView.LayoutManager {
+public class CustomLayouManager2ScrollYPatch2 extends RecyclerView.LayoutManager {
 
 	public static final String TAG = "PathLayouManager";
 
 	Path path;
-	PathManager pathManager;
-
+	PathManager2 pathManager;
+	private int mItemOffset; //Item间距
 
 	private int mTotalHeight = -1;
 	//手指 从上往下move是   下拉  dy是-
@@ -28,14 +30,14 @@ public class CustomLayouManager2ScrollYPatch extends RecyclerView.LayoutManager 
 
 	int mOffsetY;
 
-	public CustomLayouManager2ScrollYPatch(Path path) {
+	public CustomLayouManager2ScrollYPatch2(Path path) {
 		this(path, RecyclerView.VERTICAL);
 	}
 
-	public CustomLayouManager2ScrollYPatch(Path path, int mOrientation) {
+	public CustomLayouManager2ScrollYPatch2(Path path, int mOrientation) {
 		this.path = path;
 		this.mOrientation = mOrientation;
-		pathManager = new PathManager(path);
+		pathManager = new PathManager2(path);
 
 	}
 
@@ -95,7 +97,10 @@ public class CustomLayouManager2ScrollYPatch extends RecyclerView.LayoutManager 
 //			//scrap.setRotation(currentPoint.getDegrees());
 //		}
 
-
+		if (state.getItemCount() == 0) {
+			removeAndRecycleAllViews(recycler);
+			return;
+		}
 		detachAndScrapAttachedViews(recycler);
 
 		int maxVisibleCount = calculateMaxVisibleCount(recycler);
@@ -124,9 +129,9 @@ public class CustomLayouManager2ScrollYPatch extends RecyclerView.LayoutManager 
 
 
 			int itemX = (int) currentPoint.getX() - perItemWidth / 2;
-			int itemY = (int) (currentPoint.getY()/currentPoint.getTan()[0]);
+			int itemY = (int) (currentPoint.getY() / currentPoint.getTan()[0]);
 
-			Log.e(TAG, "itemX" + i + ",=" + itemX+", itemY" + i + ",=" + itemY);
+			Log.e(TAG, "itemX" + i + ",=" + itemX + ", itemY" + i + ",=" + itemY);
 			layoutDecorated(scrap, itemX, itemY, perItemWidth + itemX, itemY + perItemHeight); //第三步
 			//scrap.setRotation(currentPoint.getDegrees());
 		}
@@ -135,7 +140,28 @@ public class CustomLayouManager2ScrollYPatch extends RecyclerView.LayoutManager 
 	}
 
 
-	private int calculateMaxVisibleCount(RecyclerView.Recycler recycler){
+	private void reallyLayout(RecyclerView.Recycler recycler, RecyclerView.State state) {
+		ArrayList<Point> points = pathManager.getPoints();
+		int itemCount = getItemCount();
+		// item 长度大于path，无限滚动
+		if (itemNumberIsOverPathLength()) {
+			Log.e(TAG, "item 长度大于path，无限滚动");
+		}else {
+			Log.e(TAG, "item 长度小于path");
+		}
+	}
+
+
+	boolean itemNumberIsOverPathLength() {
+		int itemCount = getItemCount();
+		int itemLength = itemCount * mItemOffset;
+		int pathLength = pathManager.getLength();
+		Log.e(TAG, "mItemOffset="+mItemOffset+"，itemLength="+itemLength+"，pathLength="+pathLength);
+		return  itemLength - pathLength > mItemOffset;
+
+	}
+
+	private int calculateMaxVisibleCount(RecyclerView.Recycler recycler) {
 		View scrap = recycler.getViewForPosition(0);
 		addView(scrap); //第二步
 		measureChildWithMargins(scrap, 0, 0);

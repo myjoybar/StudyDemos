@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.joybar.myaskunagjia.R;
+import com.example.joybar.myaskunagjia.demo.md.layoutmanager.layout2.CustomLayouManager1Base2222;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_rr);
+        setContentView(R.layout.activity_main_path);
 
         mRecyclerView = (RecyclerView) findViewById(android.R.id.list);
 
@@ -56,13 +57,19 @@ public class MainActivity extends Activity {
 
         mRecyclerView.setHasFixedSize(true);
       //  mLayoutManager = new LinearLayoutManager(this);
+
+
+
+
        // mRecyclerView.setLayoutManager(new CustomLayouManager1());  // 显示
-       // mRecyclerView.setLayoutManager(new CustomLayouManager2Scroll());  // 滑动
-        mRecyclerView.setLayoutManager(new CustomLayouManager2ScrollXY(CustomLayouManager2ScrollXY.HORIZONAL));  // 回收
+       // mRecyclerView.setLayoutManager(new CustomLayouManager1Base2());  // 显示
+         mRecyclerView.setLayoutManager(new CustomLayouManager1Base2222());  // 显示
+        //// mRecyclerView.setLayoutManager(new CustomLayouManager2ScrollY());  // 滑动
+        // mRecyclerView.setLayoutManager(new CustomLayouManager2ScrollXY(CustomLayouManager2ScrollXY.HORIZONAL));  // 回收
        // mRecyclerView.setLayoutManager(new CustomLayouManager3Recycle());  // 回收
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
 
-        adapter = new SampleAdapter(CustomLayouManager2ScrollXY.HORIZONAL);
+        adapter = new SampleAdapter(CustomLayouManager2ScrollXY.VERTICAL);
         mRecyclerView.setAdapter(adapter);
 
         addList();

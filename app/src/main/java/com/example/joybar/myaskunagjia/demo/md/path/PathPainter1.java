@@ -88,7 +88,17 @@ public class PathPainter1 extends View {
 		mPathMeasure.getPosTan(mLength * mAnimatorValue,pos,tan);
 
 		float degrees = (float) (Math.atan2(tan[1], tan[0]) * 180.0 / Math.PI);
-		Log.e("degrees","&&&"+degrees+"--->"+Math.atan2(tan[1], tan[0])+"--->tan[1]= "+tan[1]+"---tan[0]= "+tan[0]+"---pos[0] ="+pos[0]+"---pos[1] ="+pos[1]);
+//		Log.e("degrees","&&&"+degrees+"--->"+Math.atan2(tan[1], tan[0])+"--->tan[1]= "+tan[1]+"---tan[0]= "+tan[0]+"---pos[0] " +
+//				"="+pos[0]+"---pos[1] ="+pos[1]);
+
+
+		for (int i = 0; i < mPathMeasure.getLength(); i = i + 100) {
+			int distance = i ;
+			mPathMeasure.getPosTan(distance, pos, tan);
+			Log.d("degrees", "measure.getLength()=" + mPathMeasure.getLength()+",distance=" + distance+",X=" + pos[0]+"，Y=" + pos[1]);
+
+		}
+
 
 		canvas.save();
 		canvas.translate(-300, -300);//将坐标系移动到定点

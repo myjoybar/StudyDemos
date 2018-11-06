@@ -68,6 +68,7 @@
         <activity android:name=".demo.animation.ani4.MainActivity"/>
         <activity android:name=".demo.md.recyclerview.MainActivity"/>
         <activity android:name=".demo.md.layoutmanager.MainActivity"/>
+        <activity android:name=".demo.md.layoutmanager.patchLayout.MainActivity"/>
         <activity android:name=".demo.md.MainActivityGuide"/>
         <activity android:name=".demo.md.recyclerview_refresh.MainActivity"/>
         <activity android:name=".demo.md.recyclerview_refresh2.MainActivity"/>
