@@ -4,13 +4,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.TextView;
 
 import com.example.joybar.myaskunagjia.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by joybar on 15/11/26.
@@ -45,7 +45,9 @@ public class SampleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 	@Override
 	public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
 		if (holder instanceof ItemViewHolder) {
-			((ItemViewHolder) holder).textView.setText(String.valueOf(list.get(position)));
+			String str = String.valueOf(list.get(position));
+			((ItemViewHolder) holder).textView.setText(str);
+			holder.itemView.setBackgroundColor(getRandomColor());
 		}
 	}
 
@@ -55,12 +57,12 @@ public class SampleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 		//      list_item_text_rr
 		View view = null;
 		if (direction == VERTICAL) {
-			view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_text_rr, null);
+			view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_text_rr, parent,false);
 		} else {
-			view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_text_hori, null);
+			view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_text_hori, parent,false);
 
 		}
-		view.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+		//view.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 		return new ItemViewHolder(view);
 
 	}
@@ -81,6 +83,14 @@ public class SampleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
 			textView = (TextView) view.findViewById(R.id.text);
 		}
 
+	}
+
+	public static int getRandomColor() {
+		// 随机x颜色  
+		// 随机颜色  
+		Random random = new Random();
+		int ranColor = 0xff000000 | random.nextInt(0x00ffffff);
+		return ranColor;
 	}
 
 }

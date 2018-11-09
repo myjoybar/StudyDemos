@@ -8,7 +8,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.joybar.myaskunagjia.R;
-import com.example.joybar.myaskunagjia.demo.md.layoutmanager.layout2.CustomLayouManager1Base2222;
+import com.example.joybar.myaskunagjia.demo.md.layoutmanager.layout2.CustomLayouManager1Base4444;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,8 +63,11 @@ public class MainActivity extends Activity {
 
        // mRecyclerView.setLayoutManager(new CustomLayouManager1());  // 显示
        // mRecyclerView.setLayoutManager(new CustomLayouManager1Base2());  // 显示
-         mRecyclerView.setLayoutManager(new CustomLayouManager1Base2222());  // 显示
-        //// mRecyclerView.setLayoutManager(new CustomLayouManager2ScrollY());  // 滑动
+       //  mRecyclerView.setLayoutManager(new CustomLayouManager1Base2222());  // 显示
+      //   mRecyclerView.setLayoutManager(new CustomLayouManager1Base33333());  // 显示
+         mRecyclerView.setLayoutManager(new CustomLayouManager1Base4444());  // 显示
+
+        ////  mRecyclerView.setLayoutManager(new CustomLayouManager2ScrollY());  // 滑动
         // mRecyclerView.setLayoutManager(new CustomLayouManager2ScrollXY(CustomLayouManager2ScrollXY.HORIZONAL));  // 回收
        // mRecyclerView.setLayoutManager(new CustomLayouManager3Recycle());  // 回收
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -88,8 +91,9 @@ public class MainActivity extends Activity {
         int size = adapter.getList().size();
         int lastPosition = size > 0 ? adapter.getList().get(size - 1) : 0;
 
-        for (int i = 1; i <=20; i++) {
-            list.add(lastPosition + i);
+        for (int i = 0; i <20; i++) {
+            int a = i;
+            list.add(lastPosition +  a);
         }
 
         return list;
